@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Cinfluence</title>
+<meta name="description" content="Cinfluence is founded by Hyacinth 'Cinth' Blabagno — a strategist and content director with deep experience in beauty, wellness, aesthetics, and influencer management. Meet the founder."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* Founder section */
+.founder-section {
+  display: grid;
+  grid-template-columns: minmax(320px, .9fr) minmax(0, 1fr);
+  gap: 84px;
+  align-items: center;
+}
+.founder-img {
+  aspect-ratio: 3/4;
+  background: var(--stone);
+  position: relative;
+  overflow: hidden;
+}
+.founder-img img { width: 100%; height: 100%; object-fit: cover; }
+.founder-img .img-ph { min-height: 100%; }
+.founder-tag {
+  position: absolute;
+  bottom: 36px; left: 36px;
+  background: var(--espresso);
+  color: var(--ivory);
+  padding: 20px 28px;
+}
+.founder-tag .label { color: var(--gold); display: block; margin-bottom: 12px; }
+.founder-tag h4 { font-family: var(--ff-serif); font-size: 1.1rem; font-weight: 400; }
+.founder-copy .label { color: var(--gold); display: block; margin-bottom: 24px; }
+.founder-copy p { color: var(--taupe); line-height: 1.9; font-size: .95rem; margin-bottom: 28px; }
+.founder-copy p:last-of-type { margin-bottom: 36px; }
+
+/* Experience callouts */
+.exp-callouts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  background: var(--stone);
+  margin-top: 52px;
+}
+.exp-callout {
+  background: var(--espresso);
+  padding: 44px 40px;
+}
+.exp-callout .label { color: var(--gold); display: block; margin-bottom: 16px; }
+.exp-callout p { font-size: .85rem; color: rgba(248,247,242,.6); line-height: 1.75; }
+
+/* Second founder block */
+.founder-block-2 {
+  display: grid;
+  grid-template-columns: minmax(320px, .92fr) minmax(0, 1fr);
+  gap: 3px;
+  margin-top: 80px;
+}
+.founder-block-2-img {
+  aspect-ratio: 3/4;
+  background: var(--stone);
+  overflow: hidden;
+  position: relative;
+}
+.founder-block-2-img img { width: 100%; height: 100%; object-fit: cover; }
+.founder-block-2-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  padding: 52px;
+  background: var(--espresso);
+}
+.founder-block-2-copy h3 { font-family: var(--ff-serif); font-size: 1.8rem; font-weight: 400; color: var(--ivory); }
+.founder-block-2-copy p  { font-size: .9rem; color: rgba(248,247,242,.6); line-height: 1.8; }
+
+/* Values grid */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 2px;
+  background: var(--stone);
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.value-card {
+  background: var(--ivory);
+  padding: 54px 46px;
+  transition: background .3s;
+}
+.value-card:hover { background: var(--white); }
+.value-num { font-family: var(--ff-serif); font-size: 3rem; font-weight: 400; color: var(--stone); line-height: 1; margin-bottom: 32px; }
+.value-card h3 { font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 20px; }
+.value-card p  { font-size: .88rem; color: var(--taupe); line-height: 1.8; }
+
+/* Why Cinfluence */
+.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 60px; }
+.why-item { padding: 40px 32px; background: rgba(248,247,242,.05); border: 1px solid rgba(248,247,242,.08); }
+.why-item h4 { font-size: .8rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ivory); margin-bottom: 18px; }
+.why-item p  { font-size: .85rem; color: rgba(248,247,242,.5); line-height: 1.8; }
+
+/* Industries */
+.niches-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 48px; }
+.niche-tag {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: 1px solid var(--stone);
+  color: var(--taupe);
+  transition: all .2s;
+}
+.niche-tag:hover { background: var(--espresso); color: var(--ivory); border-color: var(--espresso); }
+.niche-tag.primary { border-color: var(--gold); color: var(--espresso); }
+.niche-tag.primary:hover { background: var(--gold); color: var(--ivory); border-color: var(--gold); }
+
+@media (max-width: 1024px) {
+  .founder-section { grid-template-columns: 1fr; gap: 60px; }
+  .founder-block-2 { grid-template-columns: 1fr; }
+  .exp-callouts { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .values-grid { padding-left: 28px; padding-right: 28px; }
+  .value-card { padding: 42px 30px; }
+  .why-grid { grid-template-columns: 1fr; }
+  .founder-block-2-copy { padding: 32px 24px; }
+  .founder-tag { left: 24px; bottom: 24px; right: 24px; padding: 18px 22px; }
+}
+@media (max-width: 480px) {
+  .values-grid { padding-left: 22px; padding-right: 22px; }
+  .niche-tag { width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Cinfluence</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary">Book a Call</a>
+      <button class="hamburger" onclick="openMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary" onclick="closeMenu()">Book a Call</a>
+</div>
+
+<div class="nav-offset">
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <span class="label">The Studio</span>
+      <h1 class="heading-xl">About <em>Cinfluence</em></h1>
+      <p>A founder-led specialist content studio built for beauty, wellness, and aesthetic brands who want to be the authority in their space.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOUNDER STORY ───────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="founder-section">
+      <div class="founder-img fade-up">
+        <img src="assets/images/founder-about.jpg"
+             alt="Hyacinth Blabagno, founder of Cinfluence — on a call with laptop"
+             loading="eager" width="900" height="1200"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top">
+        <div class="founder-tag">
+          <span class="label">Founder &amp; Content Strategist</span>
+          <h4>Hyacinth "Cinth" Blabagno</h4>
+        </div>
+      </div>
+      <div class="founder-copy fade-up">
+        <span class="label">Meet the Founder</span>
+        <h2 class="heading-lg" style="margin-bottom:36px">Built by someone<br>who <em>gets it.</em></h2>
+        <p>I'm Cinth — founder of Cinfluence and the person you'll actually work with. This studio exists because I saw a gap: beauty, wellness, and aesthetic brands deserve a content partner who understands their world, speaks their audience's language, and treats their brand with the care it's earned.</p>
+        <p>My background spans social media management, influencer and UGC campaign management, AI-powered content production, e-commerce content, and brand identity work — across beauty, wellness, fashion, lifestyle, and more. I've managed platforms, directed content, sourced creators, and built content systems that run without the founder having to think about them every day.</p>
+        <p>Cinfluence is deliberately small. I take on a limited number of clients at any one time — not because I can't scale, but because depth is the product. When you work with Cinfluence, you work with me.</p>
+        <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary">Book a Discovery Call</a>
+
+        <!-- Experience Callouts -->
+        <div class="exp-callouts" style="margin-top:56px">
+          <div class="exp-callout">
+            <span class="label">Background</span>
+            <p>Social media management, influencer &amp; UGC management, AI content production, brand identity, e-commerce content, and short-form video across beauty, wellness, fashion, and lifestyle.</p>
+          </div>
+          <div class="exp-callout">
+            <span class="label">Approach</span>
+            <p>Strategy before content. Every piece earns its place with a clear purpose. I build systems that compound over time — not content that disappears into the feed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second founder block -->
+    <div class="founder-block-2 fade-up" style="margin-top:96px">
+      <div class="founder-block-2-img">
+        <img src="assets/images/founder-editorial.jpg"
+             alt="Cinth, founder of Cinfluence — working pose"
+             loading="lazy" width="900" height="1200"
+             style="width:100%;height:100%;object-fit:cover;object-position:center top">
+      </div>
+      <div class="founder-block-2-copy">
+        <h3>A studio built for<br><em>brands that care.</em></h3>
+        <p>I don't take on every client. I take on the right ones — brands with a genuine offer, a clear vision, and a willingness to invest in content that actually reflects their quality.</p>
+        <p>If your brand is in beauty, wellness, or aesthetics and you're ready to build something lasting, I'd love to talk.</p>
+        <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory" style="align-self:flex-start">Book a Discovery Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUES ──────────────────────────────────────────── -->
+<section class="section section--stone">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">What Drives the Work</span>
+      <h2 class="heading-lg">Studio <em>Values</em></h2>
+    </div>
+  </div>
+  <div class="values-grid fade-up">
+    <div class="value-card">
+      <div class="value-num">01</div>
+      <h3>Strategy First</h3>
+      <p>Every post, every Reel, every campaign begins with a clear purpose. I don't produce for the sake of producing — each piece of content earns its place in the calendar before it gets made.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">02</div>
+      <h3>Quality Over Volume</h3>
+      <p>Fewer, considered pieces outperform volume every time. I hold the work — and your brand — to a standard that reflects the care you put into your own product or service.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">03</div>
+      <h3>Consistency Builds Authority</h3>
+      <p>Brands that show up consistently, with intention, earn trust over time. I build the systems and workflows that make sure your presence never slips — even when you're focused on everything else.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-num">04</div>
+      <h3>Honest Partnership</h3>
+      <p>I'll tell you what I think — including when a direction won't serve you. The goal is always a brand that grows with substance, not content that flatters in the short term and disappears.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY CINFLUENCE ─────────────────────────────────── -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header fade-up" style="margin-bottom:0">
+      <span class="label" style="color:var(--gold)">The Difference</span>
+      <h2 class="heading-lg" style="color:var(--ivory)">Why brands choose <em style="color:var(--gold)">Cinfluence</em></h2>
+    </div>
+    <div class="why-grid fade-up">
+      <div class="why-item">
+        <h4>Specialist, not generalist</h4>
+        <p>I work specifically in beauty, wellness, and aesthetics. That means I already understand your audience, the visual language of your category, and what makes your clients trust a brand before they book.</p>
+      </div>
+      <div class="why-item">
+        <h4>I produce, not just manage</h4>
+        <p>I don't outsource or simply post content you supply. I build the strategy, write the scripts, design the graphics, edit the videos, and manage the platforms — all with consistent creative direction.</p>
+      </div>
+      <div class="why-item">
+        <h4>AI without the compromise</h4>
+        <p>I use AI to scale production intelligently, not to replace brand voice. Every AI-assisted piece goes through editorial review before it reaches your audience.</p>
+      </div>
+      <div class="why-item">
+        <h4>Founder-to-founder access</h4>
+        <p>You work directly with me — not a junior account manager. The person you speak to in the discovery call is the person who does the work.</p>
+      </div>
+      <div class="why-item">
+        <h4>Full creative visibility</h4>
+        <p>You review every piece of content before it goes live. Your brand, your approval, your control — with none of the day-to-day execution burden on your plate.</p>
+      </div>
+      <div class="why-item">
+        <h4>Small roster by design</h4>
+        <p>I keep my client list small so every brand gets the attention it deserves. When you're a Cinfluence client, your work is never deprioritised for someone else's.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INDUSTRIES ─────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-header" style="margin-bottom:52px">
+        <span class="label">Specialisations</span>
+        <h2 class="heading-lg">Industries I <em>Know</em></h2>
+      </div>
+      <p class="body-lg" style="max-width:600px;margin-bottom:8px">My primary focus is beauty, wellness, and aesthetics — the industries I know best and where my work has the most impact. I also bring experience in fashion and lifestyle, which I take on selectively to complement my core niche.</p>
+      <div class="niches-row">
+        <span class="niche-tag primary">Medical Aesthetics</span>
+        <span class="niche-tag primary">Med Spas</span>
+        <span class="niche-tag primary">Beauty Clinics</span>
+        <span class="niche-tag primary">Wellness Studios</span>
+        <span class="niche-tag primary">Skincare Brands</span>
+        <span class="niche-tag primary">Cosmetic Clinics</span>
+        <span class="niche-tag">Fashion &amp; Apparel</span>
+        <span class="niche-tag">Lifestyle &amp; E-Commerce</span>
+      </div>
+      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary" style="margin-top:56px;display:inline-block">Book a Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><span class="footer-logo">Cinfluence</span><p class="footer-tagline">A founder-led specialist content studio helping beauty, wellness, med spa, and aesthetic brands build trust, authority, and visibility through strategic content systems.</p></div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html">Social Media Management</a></li><li><a href="services.html">Short-Form Video</a></li><li><a href="services.html">Content Strategy</a></li><li><a href="services.html">AI Content Production</a></li><li><a href="services.html">UGC &amp; Influencer</a></li></ul></div>
+      <div class="footer-col"><h5>Studio</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Connect</h5><ul class="footer-links"><li><a href="https://instagram.com/cinfluence.digital" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://tiktok.com/@cinfluence.digital" target="_blank" rel="noopener">TikTok</a></li><li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cinfluence. All rights reserved.</span><div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
