@@ -1,652 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Cinfluence — Specialist Content Studio for Beauty, Wellness & Aesthetics</title>
-<meta name="description" content="Cinfluence is a founder-led specialist content studio helping beauty, wellness, med spa, skincare, and aesthetic brands build trust, authority, and visibility through strategic content systems."/>
-<link rel="stylesheet" href="style.css"/>
-<style>
-/* ── HERO ───────────────────────────────────────────── */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: var(--nav-h);
-  max-width: 1440px;
-  margin: 0 auto;
-}
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 64px;
-}
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 44px;
-}
-.hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); flex-shrink: 0; }
-.hero-h1 { margin-bottom: 36px; }
-.hero-sub { max-width: 500px; margin-bottom: 46px; font-size: 1rem; line-height: 1.9; color: var(--taupe); }
-.hero-image {
-  position: relative;
-  overflow: hidden;
-  background: var(--stone);
-}
-.hero-image img { width: 100%; height: 100%; object-fit: cover; }
-.hero-image .img-ph { min-height: 100%; }
-
-/* Trust Bar */
-.trust-bar { padding: 64px 0; border-bottom: 1px solid var(--stone); }
-.trust-inner { display: flex; flex-direction: column; align-items: center; gap: 36px; }
-.trust-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 44px; }
-.trust-item {
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--taupe);
-  opacity: .5;
-  transition: opacity .2s;
-}
-.trust-item:hover { opacity: 1; }
-
-/* Services preview grid */
-.services-preview {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2px;
-  background: var(--stone);
-  max-width: var(--container-wide);
-  margin: 0 auto;
-}
-.svc-card {
-  background: var(--ivory);
-  padding: 44px 34px;
-  position: relative;
-  transition: background .3s;
-  overflow: hidden;
-}
-.svc-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 0; height: 2px;
-  background: var(--gold);
-  transition: width .4s var(--ease);
-}
-.svc-card:hover { background: var(--white); }
-.svc-card:hover::after { width: 100%; }
-.svc-icon { width: 36px; height: 36px; color: var(--gold); margin-bottom: 24px; }
-.svc-card h3 { font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px; }
-.svc-card p  { font-size: .83rem; color: var(--taupe); line-height: 1.7; }
-.svc-link {
-  display: inline-block;
-  margin-top: 20px;
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--espresso);
-  border-bottom: 1px solid var(--gold);
-  padding-bottom: 2px;
-  transition: color .2s;
-}
-.svc-link:hover { color: var(--gold); }
-
-/* Work preview */
-.work-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.wp-card { position: relative; cursor: pointer; }
-.wp-card-img {
-  aspect-ratio: 4/5;
-  overflow: hidden;
-  background: var(--stone);
-  position: relative;
-}
-.wp-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
-.wp-card:hover .wp-card-img img { transform: scale(1.04); }
-.wp-card-img .img-ph { aspect-ratio: 4/5; min-height: auto; }
-.wp-card-info { padding: 28px 0 0; }
-.wp-card-info .label { color: var(--gold); display: block; margin-bottom: 10px; }
-.wp-card-info h3 { font-family: var(--ff-serif); font-size: 1.15rem; margin-bottom: 10px; }
-.wp-card-info span { font-size: .78rem; color: var(--taupe); font-weight: 500; line-height: 1.6; display: block; }
-
-/* Scroll strip */
-.strip-showcase { background: var(--espresso); padding: 80px 0; overflow: hidden; }
-.strip-video-cell {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: flex-end;
-  padding-bottom: 20px;
-  position: relative;
-}
-.strip-video-cell video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.strip-bg { position: absolute; inset: 0; }
-.strip-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(38,28,19,.8) 0%, transparent 55%); z-index: 1; }
-.strip-play {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-60%);
-  z-index: 2;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  background: rgba(184,147,90,.85);
-  display: flex; align-items: center; justify-content: center;
-}
-.strip-info { position: relative; z-index: 2; text-align: center; }
-.strip-info span  { display: block; font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(248,247,242,.6); margin-bottom: 3px; }
-.strip-info strong{ display: block; font-size: .72rem; font-weight: 700; color: var(--ivory); }
-.sb1{background:linear-gradient(145deg,#2d1f1a,#4a2e25)}
-.sb2{background:linear-gradient(145deg,#1e2a1e,#2d3d2d)}
-.sb3{background:linear-gradient(145deg,#2a1f2a,#3d2d3d)}
-.sb4{background:linear-gradient(145deg,#251a10,#382510)}
-.sb5{background:linear-gradient(145deg,#1a2030,#2a3545)}
-.sb6{background:linear-gradient(145deg,#2a2010,#3d3015)}
-.sb7{background:linear-gradient(145deg,#101a2a,#1a2535)}
-
-/* Floating phones */
-.float-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px 0 60px;
-  position: relative;
-}
-.float-row-shadow {
-  position: absolute;
-  bottom: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 65%;
-  height: 50px;
-  background: radial-gradient(ellipse, rgba(0,0,0,.35) 0%, transparent 70%);
-  filter: blur(18px);
-  pointer-events: none;
-}
-.fp-center { width: 195px !important; }
-.fp-bg1{background:linear-gradient(160deg,#2d1f1a,#4a2e20)}
-.fp-bg2{background:linear-gradient(160deg,#1e1428,#2d2040)}
-.fp-bg3{background:linear-gradient(160deg,#182018,#243024)}
-.fp-bg4{background:linear-gradient(160deg,#28180a,#3d2510)}
-.fp-bg5{background:linear-gradient(160deg,#101828,#182535)}
-.fp-inner {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: flex-end;
-  padding-bottom: 22px; position: relative;
-}
-.fp-inner video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.fp-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(38,28,19,.85) 0%, transparent 55%); z-index: 1; }
-.fp-play {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%,-60%);
-  z-index: 2;
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: rgba(184,147,90,.85);
-  display: flex; align-items: center; justify-content: center;
-  transition: transform .2s, background .2s;
-}
-.float-phone:hover .fp-play { transform: translate(-50%,-60%) scale(1.1); background: var(--gold); }
-.fp-label { position: relative; z-index: 2; text-align: center; }
-.fp-label span  { display: block; font-size: .55rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
-.fp-label strong{ display: block; font-size: .7rem; font-weight: 700; color: var(--ivory); }
-
-/* Process */
-.process-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(248,247,242,.1); }
-.pr-step {
-  padding: 44px 34px;
-  background: var(--espresso);
-  position: relative;
-}
-.pr-num { font-family: var(--ff-serif); font-size: 2.8rem; font-weight: 400; color: rgba(248,247,242,.12); line-height: 1; margin-bottom: 20px; display: block; }
-.pr-title { font-size: .76rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ivory); margin-bottom: 14px; }
-.pr-desc  { font-size: .78rem; color: rgba(248,247,242,.45); line-height: 1.7; }
-.pr-dot {
-  position: absolute;
-  top: 48px; right: -1px;
-  width: 7px; height: 7px;
-  background: var(--gold);
-  border-radius: 50%;
-  transform: translateX(50%);
-}
-.pr-step:last-child .pr-dot { display: none; }
-
-/* Testimonials */
-.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--stone); }
-.testi-card {
-  background: var(--ivory);
-  padding: 52px 40px;
-  position: relative;
-}
-.testi-card::before {
-  content: '\201C';
-  font-family: var(--ff-serif);
-  font-size: 5rem;
-  line-height: .8;
-  color: var(--stone);
-  position: absolute;
-  top: 20px; left: 28px;
-  font-weight: 400;
-}
-.testi-text { font-family: var(--ff-serif); font-size: .95rem; font-style: italic; line-height: 1.85; margin-bottom: 32px; position: relative; }
-.testi-name { font-size: .76rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.testi-role { font-size: .74rem; color: var(--taupe); margin-top: 4px; }
-.testi-ph { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 12px; min-height: 200px; }
-
-/* FAQ */
-.faq-list { max-width: 700px; margin: 0 auto; }
-.faq-item { border-bottom: 1px solid var(--stone); }
-.faq-q {
-  width: 100%; background: none; border: none;
-  text-align: left;
-  padding: 30px 0;
-  display: flex; justify-content: space-between; align-items: center;
-  font-size: .9rem; font-weight: 600; color: var(--espresso);
-  gap: 20px;
-}
-.faq-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--gold); transition: transform .3s var(--ease); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s var(--ease), padding .3s; font-size: .88rem; color: var(--taupe); line-height: 1.8; }
-.faq-item.open .faq-a   { max-height: 200px; padding-bottom: 26px; }
-.faq-item.open .faq-icon { transform: rotate(45deg); }
-
-/* Final CTA */
-.final-cta {
-  background: var(--espresso);
-  padding: 160px 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.final-cta-glow {
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(184,147,90,.07), transparent);
-  pointer-events: none;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-image { height: min(620px, 65vh); order: -1; }
-  .hero-content { padding: 72px 40px 64px; }
-  .work-preview-grid { grid-template-columns: 1fr 1fr; }
-  .process-row { grid-template-columns: repeat(3,1fr); }
-  .testi-grid { grid-template-columns: 1fr; }
-  .float-row .float-phone:first-child,
-  .float-row .float-phone:last-child { display: none; }
-}
-@media (max-width: 768px) {
-  .work-preview-grid { grid-template-columns: 1fr; }
-  .process-row { grid-template-columns: repeat(2,1fr); }
-  .float-row .float-phone { width: 140px !important; }
-  .fp-center { width: 160px !important; }
-  .hero-content { padding: 58px 28px 64px; }
-  .hero-image { height: 54vh; min-height: 380px; }
-  .svc-card { padding: 40px 28px; }
-  .pr-step { padding: 36px 26px; }
-}
-@media (max-width: 560px) {
-  .process-row { grid-template-columns: 1fr; }
-  .float-row { gap: 12px; }
-  .float-row .float-phone:nth-child(3),
-  .float-row .float-phone:nth-child(5) { display: none; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinfluence | Strategic Content Systems</title>
+  <meta name="description" content="Cinfluence helps lifestyle, wellness, beauty, ecommerce, and professional brands build premium digital presence through strategy, content production, AI visuals, short-form video, and social media management.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="index.html">CINFLUENCE</a>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a class="btn" href="contact.html">Book a Call</a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    </nav>
+  </header>
 
-<!-- ── NAV ────────────────────────────────────────────── -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">Cinfluence</a>
-    <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary">Book a Call</a>
-      <button class="hamburger" onclick="openMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</nav>
-<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
-  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
-  <a href="index.html" onclick="closeMenu()">Home</a>
-  <a href="services.html" onclick="closeMenu()">Services</a>
-  <a href="work.html" onclick="closeMenu()">Work</a>
-  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
-  <a href="about.html" onclick="closeMenu()">About</a>
-  <a href="contact.html" onclick="closeMenu()">Contact</a>
-  <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary" onclick="closeMenu()">Book a Call</a>
-</div>
-
-<!-- ── HERO ───────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-content fade-up">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span class="label" style="color:var(--taupe)">Specialist Content Studio</span>
-    </div>
-    <h1 class="heading-xl hero-h1">Content built<br>for brands that<br><em>earn trust.</em></h1>
-    <p class="hero-sub">I help beauty, wellness, med spa, and aesthetic brands build lasting authority through strategic content systems — not noise.</p>
-    <div class="btn-group">
-      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary">Book a Discovery Call</a>
-      <a href="work.html" class="btn btn-outline">View Work</a>
-    </div>
-  </div>
-  <div class="hero-image">
-    <img src="assets/images/founder-hero.jpg" alt="Hyacinth Blabagno, founder of Cinfluence, in an editorial studio portrait" loading="eager" width="1200" height="1800">
-  </div>
-</section>
-
-<!-- ── TRUST BAR ──────────────────────────────────────── -->
-<div class="trust-bar fade-up">
-  <div class="container">
-    <div class="trust-inner">
-      <span class="label" style="color:var(--taupe)">Brands I've Worked With</span>
-      <div class="trust-logos">
-        <img src="assets/logos/iluxe-logo.svg" alt="iLuxe Aesthetic Center" class="trust-logo" width="100" height="32">
-        <img src="assets/logos/hairsoluton-logo.svg" alt="Hair Solution Nails &amp; Spa" class="trust-logo" width="100" height="32">
-        <img src="assets/logos/stylestate-logo.svg" alt="Style State" class="trust-logo" width="100" height="32">
-        <img src="assets/logos/winnieandco-logo.svg" alt="Winnie &amp; Co." class="trust-logo" width="100" height="32">
-        <img src="assets/logos/epictales-logo.svg" alt="Epic Tales" class="trust-logo" width="100" height="32">
-        <img src="assets/logos/rabble-logo.svg" alt="Rabble Clothing" class="trust-logo" width="100" height="32">
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── STATEMENT BAND ─────────────────────────────────── -->
-<div class="statement-band fade-up">
-  <div class="container">
-    <p class="heading-lg">Authority is built, not bought.<br><em>Content is the system that compounds it.</em></p>
-  </div>
-</div>
-
-<!-- ── SERVICES PREVIEW ───────────────────────────────── -->
-<section class="section">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="label">What I Do</span>
-      <h2 class="heading-lg">Specialist services for<br><em>beauty &amp; wellness brands</em></h2>
-    </div>
-  </div>
-  <div class="services-preview">
-    <div class="svc-card fade-up">
-      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      <h3>Social Media Management</h3>
-      <p>Strategy, content, scheduling, and community management — building a consistent presence that reflects your brand's actual quality.</p>
-      <a href="services.html" class="svc-link">Learn More</a>
-    </div>
-    <div class="svc-card fade-up">
-      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-      <h3>Short-Form Video</h3>
-      <p>Platform-native Reels and TikToks scripted, directed, and edited for your audience — not repurposed from long-form.</p>
-      <a href="services.html" class="svc-link">Learn More</a>
-    </div>
-    <div class="svc-card fade-up">
-      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/></svg>
-      <h3>Content Strategy</h3>
-      <p>A strategic roadmap built around your goals — content pillars, editorial planning, and a clear direction before a single post goes out.</p>
-      <a href="services.html" class="svc-link">Learn More</a>
-    </div>
-    <div class="svc-card fade-up">
-      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-      <h3>AI-Powered Production</h3>
-      <p>Scalable, on-brand content at speed using modern AI workflows — without losing the voice or quality your audience expects.</p>
-      <a href="services.html" class="svc-link">Learn More</a>
-    </div>
-    <div class="svc-card fade-up">
-      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-      <h3>UGC &amp; Influencer</h3>
-      <p>Creator sourcing, outreach, and campaign management that connects your brand with voices your audience already trusts.</p>
-      <a href="services.html" class="svc-link">Learn More</a>
-    </div>
-    <div class="svc-card fade-up">
-      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-      <h3>Brand Identity</h3>
-      <p>The visual and strategic foundations of your brand — positioning, visual identity, messaging, and guidelines that hold together across every touchpoint.</p>
-      <a href="services.html" class="svc-link">Learn More</a>
-    </div>
-    <div class="svc-card fade-up">
-      <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-      <h3>Website Design</h3>
-      <p>A digital presence that reflects your brand's real quality — editorial, responsive, and designed to convert the right clients.</p>
-      <a href="services.html" class="svc-link">Learn More</a>
-    </div>
-    <!-- Empty cell to fill 4-column grid cleanly -->
-    <div class="svc-card" style="background:var(--espresso);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;text-align:center;padding:44px 32px">
-      <p style="font-family:var(--ff-serif);font-size:1.2rem;color:var(--ivory);line-height:1.4;font-style:italic">"Strategy first.<br>Then the story.<br>Then the system."</p>
-      <a href="services.html" class="btn btn-outline-light" style="font-size:.68rem">All Services</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── WORK PREVIEW ───────────────────────────────────── -->
-<section class="section section--stone">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="label">Selected Work</span>
-      <h2 class="heading-lg">Brands I've <em>worked with</em></h2>
-    </div>
-    <div class="work-preview-grid">
-      <div class="wp-card fade-up">
-        <div class="wp-card-img">
-          <img src="assets/work/iluxe-graphicdesigns.jpg" alt="iLuxe Aesthetic Center — content and social media work" loading="lazy" width="800" height="1000" style="width:100%;height:100%;object-fit:cover">
+  <main>
+    <section class="hero">
+      <div class="hero-copy fade-up">
+        <span class="eyebrow">Creative strategy studio</span>
+        <h1>Strategic content systems for brands ready to look premium, show up consistently, and convert with intention.</h1>
+        <p class="lead">Cinfluence helps lifestyle, wellness, beauty, ecommerce, and professional brands build a stronger digital presence through strategy, content production, AI visuals, short-form video, and social media management.</p>
+        <div class="button-row">
+          <a class="btn" href="services.html">View Services</a>
+          <a class="btn secondary" href="contact.html">Book a Call</a>
         </div>
-        <div class="wp-card-info">
-          <span class="label">Medical Aesthetics</span>
-          <h3>iLuxe Aesthetic Center</h3>
-          <span>Social media management, content creation, and brand storytelling for a premium aesthetic clinic.</span>
+        <p class="editorial-note">Social strategy / AI visuals / Short-form production</p>
+      </div>
+      <div class="hero-media fade-up">
+        <div class="media-frame">
+          <!-- Replace with your hero video: <video src="assets/videos/hero.mp4" autoplay muted loop playsinline></video> -->
+          <div class="placeholder"><div><span>Hero Video Placeholder</span><small>Add a brand film, content montage, campaign reel, or studio visual to assets/videos.</small></div></div>
         </div>
       </div>
-      <div class="wp-card fade-up">
-        <div class="wp-card-img">
-          <img src="assets/work/hairsolution-graphicdesigns.jpg" alt="Hair Solution Nails &amp; Spa — beauty and wellness content" loading="lazy" width="800" height="1000" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div class="wp-card-info">
-          <span class="label">Beauty &amp; Wellness</span>
-          <h3>Hair Solution Nails &amp; Spa</h3>
-          <span>Social media management and short-form video production for a beauty and wellness studio.</span>
-        </div>
-      </div>
-      <div class="wp-card fade-up">
-        <div class="wp-card-img">
-          <img src="assets/work/stylestate-graphicdesigns.jpg" alt="Style State — fashion social media management and Reels" loading="lazy" width="800" height="1000" style="width:100%;height:100%;object-fit:cover">
-        </div>
-        <div class="wp-card-info">
-          <span class="label">Fashion &amp; Apparel</span>
-          <h3>Style State</h3>
-          <span>Full social media management, Reels production, and content strategy for an independent fashion brand.</span>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:64px" class="fade-up">
-      <a href="work.html" class="btn btn-primary">View All Work</a>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ── INFINITE SCROLL STRIP ──────────────────────────── -->
-<section class="strip-showcase">
-  <div class="container">
-    <div class="section-header fade-up" style="margin-bottom:64px">
-      <span class="label" style="color:var(--gold)">Content Portfolio</span>
-      <h2 class="heading-lg" style="color:var(--ivory)">Work that speaks<br>for <em style="color:var(--gold)">itself.</em></h2>
-    </div>
-  </div>
-  <div class="scroll-strip-wrap" aria-label="Content portfolio strip" role="region">
-    <div class="scroll-track">
-      <!-- Video note: raw MOV files were found outside /site, but no edited/optimized reel exports were present in site assets. Keep these brand placeholders until final compressed MP4/WebM reels are selected. -->
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Medical Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty &amp; Wellness</span><strong>Hair Solution</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>E-Commerce</span><strong>Winnie &amp; Co.</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Lifestyle</span><strong>Epic Tales</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble Clothing</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Medical Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty &amp; Wellness</span><strong>Hair Solution</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>E-Commerce</span><strong>Winnie &amp; Co.</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Lifestyle</span><strong>Epic Tales</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble Clothing</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FLOATING PHONES ────────────────────────────────── -->
-<section class="section--dark" style="padding:100px 0;overflow:hidden">
-  <div class="container">
-    <div class="section-header fade-up" style="margin-bottom:64px">
-      <span class="label" style="color:var(--gold)">Short-Form Content</span>
-      <h2 class="heading-lg" style="color:var(--ivory)">Reels built for<br>the brands that <em style="color:var(--gold)">matter.</em></h2>
-      <p class="body-sm" style="color:rgba(248,247,242,.5);margin-top:24px">Every Reel scripted, directed, and edited to reflect your brand at its best.</p>
-    </div>
-  </div>
-  <div class="float-row">
-    <div class="float-row-shadow"></div>
-    <div class="phone float-phone f1" style="width:165px">
-      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
-        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg1"></div><div class="fp-grad"></div><div class="fp-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>Medical Aesthetics</span><strong>iLuxe</strong></div></div></div>
-      </div>
-    </div>
-    <div class="phone float-phone f2" style="width:165px">
-      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
-        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg2"></div><div class="fp-grad"></div><div class="fp-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>Beauty &amp; Wellness</span><strong>Hair Solution</strong></div></div></div>
-      </div>
-    </div>
-    <div class="phone float-phone f3 fp-center" style="width:195px">
-      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
-        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg3"></div><div class="fp-grad"></div><div class="fp-play" style="width:48px;height:48px"><svg width="13" height="15" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>Featured</span><strong>Style State</strong></div></div></div>
-      </div>
-    </div>
-    <div class="phone float-phone f4" style="width:165px">
-      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
-        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg4"></div><div class="fp-grad"></div><div class="fp-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>E-Commerce</span><strong>Winnie &amp; Co.</strong></div></div></div>
-      </div>
-    </div>
-    <div class="phone float-phone f5" style="width:165px">
-      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
-        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg5"></div><div class="fp-grad"></div><div class="fp-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>Apparel</span><strong>Rabble</strong></div></div></div>
-      </div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:60px">
-    <a href="work.html" class="btn btn-outline-light">See More Work</a>
-  </div>
-</section>
-
-<!-- ── PROCESS ────────────────────────────────────────── -->
-<section class="section section--dark">
-  <div class="container">
-    <div class="section-header fade-up" style="margin-bottom:72px">
-      <span class="label" style="color:var(--gold)">How I Work</span>
-      <h2 class="heading-lg" style="color:var(--ivory)">A process built<br>for <em style="color:var(--gold)">clarity.</em></h2>
-    </div>
-    <div class="process-row">
-      <div class="pr-step fade-up"><span class="pr-num">01</span><div class="pr-title">Discovery</div><p class="pr-desc">Deep-dive into your brand, goals, audience, and competitive landscape.</p><div class="pr-dot"></div></div>
-      <div class="pr-step fade-up"><span class="pr-num">02</span><div class="pr-title">Strategy</div><p class="pr-desc">A custom content strategy — pillars, editorial direction, and channel plan aligned to your business goals.</p><div class="pr-dot"></div></div>
-      <div class="pr-step fade-up"><span class="pr-num">03</span><div class="pr-title">Creation</div><p class="pr-desc">On-brand content produced to a considered standard — scripted, designed, edited, and refined.</p><div class="pr-dot"></div></div>
-      <div class="pr-step fade-up"><span class="pr-num">04</span><div class="pr-title">Approval</div><p class="pr-desc">You review everything before it goes live. No surprises, no assumptions.</p><div class="pr-dot"></div></div>
-      <div class="pr-step fade-up"><span class="pr-num">05</span><div class="pr-title">Publish</div><p class="pr-desc">Scheduled publishing at the right time, on the right platform, for your specific audience.</p><div class="pr-dot"></div></div>
-      <div class="pr-step fade-up"><span class="pr-num">06</span><div class="pr-title">Refine</div><p class="pr-desc">Monthly review of what's working, what isn't, and where to focus next.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TESTIMONIALS ───────────────────────────────────── -->
-<section class="section">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="label">Client Feedback</span>
-      <h2 class="heading-lg">What clients <em>say</em></h2>
-    </div>
-    <div class="testi-grid fade-up">
-      <div class="testi-card">
-        <div class="testi-ph">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <p style="font-size:.78rem;color:var(--taupe)">Client testimonial placeholder<br><em>Replace with a verified review</em></p>
+    <section class="section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div><span class="eyebrow">What we do</span><h2>Creative support for brands that need sharper content and cleaner systems.</h2></div>
+          <p>From day-to-day social presence to campaign creative, Cinfluence turns brand direction into practical content that can be planned, produced, published, and improved.</p>
+        </div>
+        <div class="grid grid-4">
+          <article class="card fade-up"><span class="number">01</span><h3>Social Media Management</h3><p>Consistent publishing, channel care, captions, calendars, and light engagement support.</p></article>
+          <article class="card fade-up"><span class="number">02</span><h3>Short-Form Video Content</h3><p>Reels, TikToks, hooks, edits, and content ideas built for attention and clarity.</p></article>
+          <article class="card fade-up"><span class="number">03</span><h3>AI Content Production</h3><p>Premium AI image and video concepts for campaigns, launches, mood-led storytelling, and visuals.</p></article>
+          <article class="card fade-up"><span class="number">04</span><h3>Content Strategy</h3><p>Messaging pillars, posting direction, monthly themes, and conversion-focused content planning.</p></article>
+          <article class="card fade-up"><span class="number">05</span><h3>Influencer & UGC Support</h3><p>Creator briefs, outreach support, UGC direction, and campaign asset coordination.</p></article>
+          <article class="card fade-up"><span class="number">06</span><h3>Email Marketing</h3><p>Campaign copy, launch emails, nurture ideas, and content that extends your social strategy.</p></article>
+          <article class="card fade-up"><span class="number">07</span><h3>Paid Ads Support</h3><p>Creative concepts, ad copy angles, content variations, and campaign asset direction.</p></article>
+          <article class="card fade-up"><span class="number">08</span><h3>Website / Landing Page Support</h3><p>Refined page structure, copy direction, and design support for stronger digital first impressions.</p></article>
         </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-ph">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <p style="font-size:.78rem;color:var(--taupe)">Client testimonial placeholder<br><em>Include name, brand, and context</em></p>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div><span class="eyebrow">Featured work</span><h2>Portfolio placeholders ready for your strongest proof.</h2></div>
+          <a class="btn secondary" href="work.html">View Work</a>
+        </div>
+        <div class="grid grid-4">
+          <article class="work-card fade-up"><div class="placeholder"><div><span>Image Placeholder</span><small>assets/images/wellness.jpg</small></div></div><h3>Wellness & Aesthetic Brands</h3><p>Content systems for elevated, trust-driven service brands.</p></article>
+          <article class="work-card fade-up"><div class="placeholder"><div><span>Image Placeholder</span><small>assets/images/ecommerce.jpg</small></div></div><h3>Ecommerce Brands</h3><p>Product-led social creative, launches, and conversion support.</p></article>
+          <article class="work-card fade-up"><div class="placeholder"><div><span>Video Placeholder</span><small>assets/videos/lifestyle.mp4</small></div></div><h3>Lifestyle & Fashion Brands</h3><p>Editorial content direction with modern short-form execution.</p></article>
+          <article class="work-card fade-up"><div class="placeholder"><div><span>Image Placeholder</span><small>assets/images/personal-brand.jpg</small></div></div><h3>Personal Brands / Professionals</h3><p>Authority-building content for founders, consultants, and experts.</p></article>
         </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-ph">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <p style="font-size:.78rem;color:var(--taupe)">Client testimonial placeholder<br><em>Video testimonials also supported</em></p>
+    </section>
+
+    <section class="section dark">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div><span class="eyebrow">Process</span><h2>A simple creative rhythm for consistent, strategic output.</h2></div>
+        </div>
+        <div class="process fade-up">
+          <div class="process-item"><h3>Discover</h3><p>Clarify brand goals, audience, offer, visual direction, and current content gaps.</p></div>
+          <div class="process-item"><h3>Strategize</h3><p>Build the content pillars, monthly themes, campaign direction, and creative priorities.</p></div>
+          <div class="process-item"><h3>Create</h3><p>Produce posts, short-form concepts, AI visuals, captions, and supporting assets.</p></div>
+          <div class="process-item"><h3>Launch</h3><p>Publish with intention across the right channels and keep the presence cohesive.</p></div>
+          <div class="process-item"><h3>Optimize</h3><p>Review performance, refine direction, and keep improving the creative system.</p></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ── FAQ ────────────────────────────────────────────── -->
-<section class="section section--stone">
-  <div class="container">
-    <div class="section-header center fade-up">
-      <span class="label">Questions</span>
-      <h2 class="heading-lg">Frequently Asked</h2>
-    </div>
-    <div class="faq-list fade-up">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What types of brands do you work with?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">I specialise in beauty, wellness, med spas, skincare brands, aesthetic clinics, and cosmetic practices. I also work with fashion and lifestyle brands as a secondary niche. If your brand prioritises quality, visual storytelling, and building trust with your audience, we're probably a good fit.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you create the content or just manage it?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Both. I handle the strategy, scripting, content design, video editing, scheduling, and community management — so you can focus on running your business. Every piece of content goes through your approval before it goes live.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you offer custom packages?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Yes. Book a discovery call and I'll build a custom proposal based on your brand's specific goals, channels, and budget. There's no one-size-fits-all approach here.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the minimum engagement?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">I ask for a 3-month minimum on all retainer packages. Building authority through content is a compounding process — 3 months is the realistic starting point for meaningful, directional work. After that, we continue month-to-month.</div></div>
-    </div>
-    <div style="text-align:center;margin-top:60px" class="fade-up">
-      <a href="contact.html" class="btn btn-primary">Have More Questions?</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── FINAL CTA ───────────────────────────────────────── -->
-<section class="final-cta">
-  <div class="final-cta-glow"></div>
-  <div class="container" style="position:relative">
-    <div class="fade-up">
-      <span class="label" style="color:var(--gold);display:block;margin-bottom:28px"><span class="gold-rule"></span>Let's Work Together</span>
-      <h2 class="heading-lg" style="color:var(--ivory);max-width:580px;margin:0 auto 20px">Ready to build<br>a brand they <em>remember?</em></h2>
-      <p style="color:rgba(248,247,242,.5);margin-bottom:52px;max-width:440px;margin-left:auto;margin-right:auto">Discovery calls are free, 30 minutes, and obligation-free. Let's talk about your brand and where you want to take it.</p>
-      <div class="btn-group" style="justify-content:center">
-        <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory">Book a Discovery Call</a>
-        <a href="mailto:hello@cinfluencedigital.com" class="btn btn-outline-light">hello@cinfluencedigital.com</a>
+    <section class="section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div><span class="eyebrow">Pricing preview</span><h2>Flexible monthly support for different stages of brand growth.</h2></div>
+          <p>Custom scope available for launches, campaigns, and blended content support.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="price-card fade-up"><h3>Starter</h3><div class="price">$800<span>/month</span></div><p>For brands that need consistent content and basic management.</p><a class="btn secondary" href="pricing.html">Explore</a></article>
+          <article class="price-card fade-up"><h3>Standard</h3><div class="price">$1,500<span>/month</span></div><p>For brands that need strategy, planning, short-form content, and stronger execution.</p><a class="btn" href="pricing.html">Explore</a></article>
+          <article class="price-card fade-up"><h3>Premium</h3><div class="price">$2,500<span>/month</span></div><p>For brands that need full content support, AI visuals, campaigns, and growth-focused creative systems.</p><a class="btn secondary" href="pricing.html">Explore</a></article>
+        </div>
+        <p class="custom-note fade-up">Custom scope available for campaign launches, intensive content production, and website support.</p>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────── -->
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <span class="footer-logo">Cinfluence</span>
-        <p class="footer-tagline">A founder-led specialist content studio helping beauty, wellness, med spa, and aesthetic brands build trust, authority, and visibility through strategic content systems.</p>
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div><span class="eyebrow">Testimonials</span><h2>Client notes placeholder.</h2></div>
+        </div>
+        <div class="grid grid-3">
+          <figure class="testimonial fade-up"><blockquote>“Add a client quote about strategy, consistency, or stronger brand presence.”</blockquote><cite>Client Name / Brand</cite></figure>
+          <figure class="testimonial fade-up"><blockquote>“Add a client quote about short-form content, launches, or visual direction.”</blockquote><cite>Client Name / Brand</cite></figure>
+          <figure class="testimonial fade-up"><blockquote>“Add a client quote about creative support feeling polished and easy.”</blockquote><cite>Client Name / Brand</cite></figure>
+        </div>
       </div>
-      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html">Social Media Management</a></li><li><a href="services.html">Short-Form Video</a></li><li><a href="services.html">Content Strategy</a></li><li><a href="services.html">AI Content Production</a></li><li><a href="services.html">UGC &amp; Influencer</a></li><li><a href="services.html">Brand Identity</a></li><li><a href="services.html">Website Design</a></li></ul></div>
-      <div class="footer-col"><h5>Studio</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h5>Connect</h5><ul class="footer-links"><li><a href="https://instagram.com/cinfluence.digital" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://tiktok.com/@cinfluence.digital" target="_blank" rel="noopener">TikTok</a></li><li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Cinfluence. All rights reserved.</span>
-      <div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a><a href="contact.html">Contact</a></div>
-    </div>
-  </div>
-</footer>
+    </section>
 
-<script src="main.js"></script>
+    <section class="section">
+      <div class="container">
+        <div class="section-head fade-up"><div><span class="eyebrow">FAQ</span><h2>Before we build your content system.</h2></div></div>
+        <div class="faq-list fade-up">
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>Do you offer custom packages?</span><span>+</span></button><div class="faq-answer"><p>Yes. Monthly packages can be adjusted for campaign needs, content volume, short-form video, AI visuals, email, paid creative, or website support.</p></div></div>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>Can you work with existing brand assets?</span><span>+</span></button><div class="faq-answer"><p>Yes. Cinfluence can refine and extend your existing brand direction while making your content feel more cohesive and premium.</p></div></div>
+          <div class="faq-item"><button class="faq-question" type="button" aria-expanded="false"><span>Do you create AI visuals?</span><span>+</span></button><div class="faq-answer"><p>Yes. AI visuals can be used for concepts, campaigns, social content, mood-led storytelling, and brand-supporting creative.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container fade-up">
+        <span class="eyebrow">Next step</span>
+        <h2>Ready to build a brand presence that feels intentional?</h2>
+        <div class="button-row"><a class="btn" href="contact.html">Book a Discovery Call</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><a class="logo" href="index.html">CINFLUENCE</a><p class="lead">Premium content strategy and creative production for brands ready to show up with intention.</p></div>
+      <div><span class="eyebrow">Quick links</span><ul><li><a href="services.html">Services</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><span class="eyebrow">Contact</span><ul><li><a href="mailto:hello@cinfluence.co">hello@cinfluence.co</a></li><li><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a></li><li><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="container footer-bottom">© 2026 Cinfluence. All rights reserved.</div>
+  </footer>
+  <script src="main.js"></script>
 </body>
 </html>
