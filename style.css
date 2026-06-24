@@ -83,17 +83,19 @@ em { font-style: italic; }
 
 /* ── LAYOUT ────────────────────────────────────────── */
 
-/* ── CONTAINER SYSTEM ──────────────────────────────
-   Single source of truth for horizontal centering.
-   Nothing sits closer than 32px to any viewport edge.
-   ─────────────────────────────────────────────────── */
+/*
+ * Container — single source of truth.
+ * min(100% - Xpx, maxW) guarantees content is always
+ * at least X/2 px from the viewport edge at any width.
+ * margin-inline: auto centers it.
+ */
 .container {
-  width: min(100% - 64px, 1280px);
+  width: min(100% - 80px, 1280px);
   margin-inline: auto;
 }
 
-/* Section vertical rhythm — clamp scales smoothly */
-.section { padding: clamp(72px, 8vw, 120px) 0; }
+/* Section vertical rhythm — fluid, no hard jumps */
+.section { padding: clamp(80px, 9vw, 128px) 0; }
 
 .section--dark  { background: var(--espresso); color: var(--ivory); }
 .section--stone { background: var(--stone); }
@@ -138,7 +140,7 @@ nav {
 }
 nav.scrolled { box-shadow: 0 2px 24px rgba(38,28,19,.07); }
 .nav-inner {
-  width: min(100% - 64px, 1280px);
+  width: min(100% - 80px, 1280px);
   margin-inline: auto;
   height: 100%;
   display: flex;
@@ -244,8 +246,8 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(38,28,19,.07); }
 .page-hero p { color: rgba(248,247,242,.55); max-width: 520px; margin-top: 32px; font-size: 1rem; line-height: 1.9; }
 
 /* ── SECTION HEADER ────────────────────────────────── */
-.section-header { margin-bottom: 80px; }
-.section-header .label { color: var(--gold); display: block; margin-bottom: 20px; }
+.section-header { margin-bottom: 72px; }
+.section-header .label { color: var(--gold); display: block; margin-bottom: 16px; }
 .section-header.center { text-align: center; }
 .section-header.center p { max-width: 520px; margin: 16px auto 0; }
 
@@ -439,7 +441,7 @@ footer {
   height: 30px;
   width: auto;
   max-width: 130px;
-  opacity: .4;
+  opacity: .42;
   filter: grayscale(100%) brightness(0.35);
   transition: opacity .28s, filter .28s;
   object-fit: contain;
@@ -450,23 +452,38 @@ footer {
 @media (max-width: 1024px) {
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
+/* Large desktop — more breathing room */
 @media (min-width: 1440px) {
   .container {
     width: min(100% - 120px, 1320px);
   }
+  .nav-inner {
+    width: min(100% - 120px, 1320px);
+  }
 }
+
+/* Tablet */
 @media (max-width: 1024px) {
   .container {
-    width: min(100% - 48px, 100%);
+    width: min(100% - 56px, 100%);
+  }
+  .nav-inner {
+    width: min(100% - 56px, 100%);
   }
 }
+
+/* Mobile */
 @media (max-width: 640px) {
   .container {
-    width: min(100% - 32px, 100%);
+    width: min(100% - 40px, 100%);
   }
+  .nav-inner {
+    width: min(100% - 40px, 100%);
+  }
+  .section { padding: clamp(64px, 9vw, 96px) 0; }
 }
+
 @media (max-width: 768px) {
-  .section { padding: clamp(56px, 8vw, 96px) 0; }
   .nav-links, .nav-cta .btn { display: none; }
   .hamburger { display: flex; }
   .footer-top { grid-template-columns: 1fr; gap: 40px; }
