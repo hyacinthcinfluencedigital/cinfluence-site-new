@@ -11,13 +11,13 @@
 .svc-full-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 600px;
+  min-height: 480px;
   border-bottom: 1px solid var(--stone);
 }
 .svc-full-row:nth-child(even) .svc-full-content { order: 2; }
 .svc-full-row:nth-child(even) .svc-full-img     { order: 1; }
 .svc-full-content {
-  padding: 100px 96px;
+  padding: clamp(64px, 7vw, 96px) clamp(52px, 6vw, 80px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,7 +25,7 @@
 .svc-full-content .label { color: var(--gold); display: block; margin-bottom: 22px; }
 .svc-full-content h2 { font-family: var(--ff-serif); font-size: clamp(1.6rem,2.5vw,2.2rem); font-weight: 400; margin-bottom: 28px; line-height: 1.2; letter-spacing: -.02em; }
 .svc-full-content p  { color: var(--taupe); line-height: 1.9; font-size: .95rem; margin-bottom: 36px; }
-.svc-full-img { background: var(--stone); position: relative; overflow: hidden; min-height: 560px; }
+.svc-full-img { background: var(--stone); position: relative; overflow: hidden; }
 .svc-full-img img { width: 100%; height: 100%; object-fit: cover; }
 .svc-includes { margin: 28px 0; display: flex; flex-direction: column; gap: 14px; }
 .svc-includes li {
@@ -46,7 +46,7 @@
 }
 .project-svc {
   background: var(--espresso);
-  padding: 100px 96px;
+  padding: clamp(64px, 7vw, 96px) clamp(52px, 6vw, 80px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,13 +63,13 @@
   .svc-full-row:nth-child(even) .svc-full-content,
   .svc-full-row:nth-child(even) .svc-full-img { order: unset; }
   .svc-full-img { height: 320px; }
-  .svc-full-content { padding: 72px 64px; }
+  .svc-full-content { padding: 64px 48px; }
   .project-services { grid-template-columns: 1fr; }
-  .project-svc { padding: 72px 64px; }
+  .project-svc { padding: 56px 40px; }
 }
 @media (max-width: 768px) {
-  .svc-full-content { padding: 56px 40px; }
-  .project-svc { padding: 56px 40px; }
+  .svc-full-content { padding: 52px 28px; }
+  .project-svc { padding: 48px 28px; }
 }
 </style>
 </head>
@@ -115,7 +115,7 @@
 </div>
 
 <!-- ── CORE RETAINER SERVICES ─────────────────────────── -->
-<div class="container" style="padding-top:var(--section-lg);padding-bottom:var(--stack-section)">
+<div class="container" style="padding-top:88px;padding-bottom:36px">
   <div class="fade-up">
     <span class="label" style="color:var(--gold)">Core Services</span>
     <h2 class="heading-md" style="margin-top:16px">Retained — ongoing engagements that compound.</h2>
@@ -232,7 +232,7 @@
 </div>
 
 <!-- ── PROJECT SERVICES ───────────────────────────────── -->
-<div class="container" style="padding-top:var(--section-lg);padding-bottom:var(--stack-section)">
+<div class="container" style="padding-top:96px;padding-bottom:40px">
   <div class="fade-up">
     <span class="label" style="color:var(--gold)">Project Services</span>
     <h2 class="heading-md" style="margin-top:16px">Fixed scope — defined deliverables, start to finish.</h2>
@@ -285,15 +285,12 @@
       <div>
         <span class="label" style="color:var(--gold);display:block;margin-bottom:22px">Not ready for a retainer?</span>
         <h2 class="heading-lg">Strategy <em>Intensive</em></h2>
-        <p class="body-lg" style="margin:24px 0 32px">A focused 90-minute session that gives you a full content strategy, platform direction, and 90-day plan — with no ongoing commitment required. The right starting point if you want clarity before you commit.</p>
-        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:8px">
-          <div style="font-family:var(--ff-serif);font-size:3.5rem;font-weight:400;color:var(--espresso);line-height:1">$300</div>
-          <span style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe)">One-time</span>
-        </div>
-        <p style="font-size:.8rem;color:var(--taupe);margin-bottom:44px">Delivered within 5 business days · No ongoing commitment</p>
+        <p class="body-lg" style="margin:20px 0">A focused 90-minute session that gives you a full content strategy, platform direction, and 90-day plan — with no ongoing commitment required. The right starting point if you want clarity before you commit.</p>
+        <div style="font-family:var(--ff-serif);font-size:3rem;font-weight:400;margin-bottom:16px">$300</div>
+        <p style="font-size:.8rem;color:var(--taupe);margin-bottom:40px">One-time payment · Delivered within 5 business days</p>
         <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary">Book a Strategy Intensive</a>
       </div>
-      <div style="background:var(--espresso);padding:64px;display:flex;flex-direction:column;gap:24px">
+      <div style="background:var(--espresso);padding:52px;display:flex;flex-direction:column;gap:20px">
         <div class="label" style="color:var(--gold)">What's included</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
           <li style="font-size:.88rem;padding-left:18px;position:relative;color:rgba(248,247,242,.8)"><span style="position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold);display:block"></span>90-minute strategy session via Google Meet</li>
@@ -309,18 +306,13 @@
 </section>
 
 <!-- ── FINAL CTA ───────────────────────────────────────── -->
-<section class="final-cta">
-  <div class="final-cta-glow"></div>
-  <div class="final-cta-rule"></div>
-  <div class="container" style="position:relative;text-align:center">
-    <div class="fade-up">
-      <span class="label" style="color:var(--gold);display:block;margin-bottom:var(--stack-eyebrow)"><span class="gold-rule"></span>Let's Work Together</span>
-      <h2 class="heading-lg" style="color:var(--ivory);max-width:640px;margin:0 auto var(--stack-heading)">Not sure which service<br>is right? <em>Let's talk.</em></h2>
-      <p style="color:rgba(248,247,242,.45);max-width:480px;margin:0 auto var(--stack-sub);font-size:.95rem;line-height:1.9;text-wrap:balance">Discovery calls are free and obligation-free. I'll help you figure out exactly what your brand needs.</p>
-      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory">Book a Discovery Call</a>
-    </div>
+<div class="statement-band">
+  <div class="container fade-up">
+    <p class="heading-lg" style="color:var(--ivory);margin-bottom:32px">Not sure which service<br>is right? <em>Let's talk.</em></p>
+    <p style="color:rgba(248,247,242,.5);margin-bottom:52px">Discovery calls are free and obligation-free.</p>
+    <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory">Book a Discovery Call</a>
   </div>
-</section>
+</div>
 
 <footer>
   <div class="container">
