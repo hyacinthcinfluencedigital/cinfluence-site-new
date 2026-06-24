@@ -82,8 +82,8 @@ em { font-style: italic; }
 .body-sm { font-size: .875rem; line-height: 1.75; color: var(--taupe); }
 
 /* ── LAYOUT ────────────────────────────────────────── */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
-.section    { padding: 130px 0; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 64px; }
+.section    { padding: 140px 0; }
 .section--dark  { background: var(--espresso); color: var(--ivory); }
 .section--stone { background: var(--stone); }
 .section--white { background: var(--white); }
@@ -127,9 +127,9 @@ nav {
 }
 nav.scrolled { box-shadow: 0 2px 24px rgba(38,28,19,.07); }
 .nav-inner {
-  max-width: 1280px;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 64px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -426,22 +426,22 @@ footer {
 
 /* ── TRUST BAR LOGOS ───────────────────────────────── */
 .trust-logo {
-  height: 26px;
+  height: 32px;
   width: auto;
-  max-width: 120px;
-  opacity: .35;
-  filter: grayscale(100%) brightness(0.3);
+  max-width: 140px;
+  opacity: .45;
+  filter: grayscale(100%) brightness(0.4);
   transition: opacity .28s, filter .28s;
   object-fit: contain;
 }
-.trust-logo:hover { opacity: .8; filter: grayscale(0%) brightness(1); }
+.trust-logo:hover { opacity: .85; filter: grayscale(0%) brightness(1); }
 
 /* ── RESPONSIVE ────────────────────────────────────── */
 @media (max-width: 1024px) {
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .container { padding: 0 24px; }
+  .container { padding: 0 28px; }
   .section { padding: 96px 0; }
   .nav-links, .nav-cta .btn { display: none; }
   .hamburger { display: flex; }
