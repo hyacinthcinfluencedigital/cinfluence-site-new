@@ -7,18 +7,17 @@
 <meta name="description" content="Specialist content services for beauty, wellness, med spa, and aesthetic brands — social media management, short-form video, content strategy, AI production, UGC, brand identity, and website design."/>
 <link rel="stylesheet" href="style.css"/>
 <style>
-.services-full { display: flex; flex-direction: column; gap: 0; max-width: 1440px; margin: 0 auto; }
+.services-full { display: flex; flex-direction: column; gap: 0; }
 .svc-full-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 560px;
+  min-height: 600px;
   border-bottom: 1px solid var(--stone);
 }
 .svc-full-row:nth-child(even) .svc-full-content { order: 2; }
 .svc-full-row:nth-child(even) .svc-full-img     { order: 1; }
 .svc-full-content {
-  padding: 96px 80px;
-  max-width: 640px;
+  padding: 100px 96px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +25,7 @@
 .svc-full-content .label { color: var(--gold); display: block; margin-bottom: 22px; }
 .svc-full-content h2 { font-family: var(--ff-serif); font-size: clamp(1.6rem,2.5vw,2.2rem); font-weight: 400; margin-bottom: 28px; line-height: 1.2; letter-spacing: -.02em; }
 .svc-full-content p  { color: var(--taupe); line-height: 1.9; font-size: .95rem; margin-bottom: 36px; }
-.svc-full-img { background: var(--stone); position: relative; overflow: hidden; min-height: 520px; }
+.svc-full-img { background: var(--stone); position: relative; overflow: hidden; min-height: 560px; }
 .svc-full-img img { width: 100%; height: 100%; object-fit: cover; }
 .svc-includes { margin: 28px 0; display: flex; flex-direction: column; gap: 14px; }
 .svc-includes li {
@@ -44,12 +43,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 2px;
   background: var(--stone);
-  max-width: 1440px;
-  margin: 0 auto;
 }
 .project-svc {
   background: var(--espresso);
-  padding: 96px 96px;
+  padding: 100px 96px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -66,13 +63,13 @@
   .svc-full-row:nth-child(even) .svc-full-content,
   .svc-full-row:nth-child(even) .svc-full-img { order: unset; }
   .svc-full-img { height: 320px; }
-  .svc-full-content { padding: 64px 56px; }
+  .svc-full-content { padding: 72px 64px; }
   .project-services { grid-template-columns: 1fr; }
-  .project-svc { padding: 64px 56px; }
+  .project-svc { padding: 72px 64px; }
 }
 @media (max-width: 768px) {
-  .svc-full-content { padding: 52px 32px; }
-  .project-svc { padding: 52px 32px; }
+  .svc-full-content { padding: 56px 40px; }
+  .project-svc { padding: 56px 40px; }
 }
 </style>
 </head>
@@ -118,7 +115,7 @@
 </div>
 
 <!-- ── CORE RETAINER SERVICES ─────────────────────────── -->
-<div class="container" style="padding-top:88px;padding-bottom:36px">
+<div class="container" style="padding-top:var(--section-lg);padding-bottom:var(--stack-section)">
   <div class="fade-up">
     <span class="label" style="color:var(--gold)">Core Services</span>
     <h2 class="heading-md" style="margin-top:16px">Retained — ongoing engagements that compound.</h2>
@@ -235,7 +232,7 @@
 </div>
 
 <!-- ── PROJECT SERVICES ───────────────────────────────── -->
-<div class="container" style="padding-top:96px;padding-bottom:40px">
+<div class="container" style="padding-top:var(--section-lg);padding-bottom:var(--stack-section)">
   <div class="fade-up">
     <span class="label" style="color:var(--gold)">Project Services</span>
     <h2 class="heading-md" style="margin-top:16px">Fixed scope — defined deliverables, start to finish.</h2>
@@ -296,7 +293,7 @@
         <p style="font-size:.8rem;color:var(--taupe);margin-bottom:44px">Delivered within 5 business days · No ongoing commitment</p>
         <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary">Book a Strategy Intensive</a>
       </div>
-      <div style="background:var(--espresso);padding:52px;display:flex;flex-direction:column;gap:20px">
+      <div style="background:var(--espresso);padding:64px;display:flex;flex-direction:column;gap:24px">
         <div class="label" style="color:var(--gold)">What's included</div>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
           <li style="font-size:.88rem;padding-left:18px;position:relative;color:rgba(248,247,242,.8)"><span style="position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold);display:block"></span>90-minute strategy session via Google Meet</li>
@@ -312,14 +309,14 @@
 </section>
 
 <!-- ── FINAL CTA ───────────────────────────────────────── -->
-<section class="final-cta" style="padding:120px 0">
+<section class="final-cta">
   <div class="final-cta-glow"></div>
   <div class="final-cta-rule"></div>
   <div class="container" style="position:relative;text-align:center">
     <div class="fade-up">
-      <span class="label" style="color:var(--gold);display:block;margin-bottom:28px"><span class="gold-rule"></span>Let's Work Together</span>
-      <h2 class="heading-lg" style="color:var(--ivory);max-width:640px;margin:0 auto 24px">Not sure which service<br>is right? <em>Let's talk.</em></h2>
-      <p style="color:rgba(248,247,242,.45);max-width:440px;margin:0 auto 52px;font-size:.92rem;line-height:1.9">Discovery calls are free and obligation-free. I'll help you figure out exactly what your brand needs.</p>
+      <span class="label" style="color:var(--gold);display:block;margin-bottom:var(--stack-eyebrow)"><span class="gold-rule"></span>Let's Work Together</span>
+      <h2 class="heading-lg" style="color:var(--ivory);max-width:640px;margin:0 auto var(--stack-heading)">Not sure which service<br>is right? <em>Let's talk.</em></h2>
+      <p style="color:rgba(248,247,242,.45);max-width:480px;margin:0 auto var(--stack-sub);font-size:.95rem;line-height:1.9;text-wrap:balance">Discovery calls are free and obligation-free. I'll help you figure out exactly what your brand needs.</p>
       <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory">Book a Discovery Call</a>
     </div>
   </div>
