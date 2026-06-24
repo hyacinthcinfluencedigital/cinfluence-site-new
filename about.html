@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — CINFLUENCE</title>
+<meta name="description" content="Cinfluence was founded by Hyacinth Marr P. Blabagno — built from years of real entrepreneurial experience, not a template."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* ── FOUNDER SPLIT ─────────────────────────────────── */
+.founder-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+}
+.founder-photo-col {
+  background: var(--coffee);
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+}
+.founder-photo-col .img-ph {
+  position: absolute; inset: 0;
+  height: 100%;
+  border: none;
+  background: linear-gradient(135deg, var(--coffee) 0%, var(--espresso) 100%);
+}
+.founder-story-col {
+  background: var(--espresso);
+  padding: 80px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.founder-story-col .label { color: var(--gold); display: block; margin-bottom: 24px; }
+.founder-story-col h2 {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.8rem,3vw,2.8rem);
+  font-weight: 400;
+  color: var(--ivory);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+  margin-bottom: 28px;
+}
+.founder-story-col h2 em { color: var(--gold); font-style: italic; }
+.founder-story-col p { color: rgba(248,247,242,.6); line-height: 1.9; font-size: .95rem; margin-bottom: 16px; }
+.founder-story-col .btn { margin-top: 16px; align-self: flex-start; }
+
+/* ── TIMELINE ──────────────────────────────────────── */
+.about-timeline { padding: 110px 0; background: var(--ivory); }
+.timeline { position: relative; padding-left: 40px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 1px;
+  background: var(--stone);
+}
+.timeline-item { position: relative; margin-bottom: 60px; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-dot {
+  position: absolute;
+  left: -46px; top: 4px;
+  width: 12px; height: 12px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 3px solid var(--ivory);
+  outline: 1px solid var(--stone);
+}
+.timeline-year {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.timeline-item h3 {
+  font-family: var(--ff-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.timeline-item p { color: var(--taupe); line-height: 1.85; font-size: .93rem; max-width: 580px; }
+
+/* ── VALUES ────────────────────────────────────────── */
+.about-values { background: var(--stone); padding: 110px 0; }
+.values-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 2px;
+  background: rgba(83,65,42,.12);
+  margin-top: 64px;
+}
+.value-tile {
+  background: var(--white);
+  padding: 40px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background .3s;
+}
+.value-tile:hover { background: var(--ivory); }
+.value-tile-num {
+  font-family: var(--ff-serif);
+  font-size: 3rem;
+  color: var(--stone);
+  line-height: 1;
+  font-weight: 400;
+  transition: color .3s;
+}
+.value-tile:hover .value-tile-num { color: var(--gold); }
+.value-tile h4 {
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--espresso);
+}
+.value-tile p { font-size: .82rem; color: var(--taupe); line-height: 1.75; }
+
+/* ── PHILOSOPHY BAND ───────────────────────────────── */
+.about-philosophy {
+  background: var(--espresso);
+  padding: 100px 0;
+  text-align: center;
+}
+.philosophy-quote {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  color: var(--ivory);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+.philosophy-quote em { color: var(--gold); font-style: italic; }
+.philosophy-attr {
+  margin-top: 32px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(248,247,242,.35);
+}
+
+/* ── RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .founder-split { grid-template-columns: 1fr; }
+  .founder-photo-col { min-height: 380px; }
+  .founder-story-col { padding: 64px 40px; }
+  .values-grid-5 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .founder-story-col { padding: 52px 24px; }
+  .about-timeline { padding: 80px 0; }
+  .timeline { padding-left: 28px; }
+  .timeline-dot { left: -34px; }
+  .values-grid-5 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Cinfluence</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Book A Call</a>
+      <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" class="btn btn-primary" onclick="closeMenu()">Book A Call</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="nav-offset">
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <span class="label">The Founder</span>
+      <h1 class="heading-xl">Hyacinth Marr P. <em>Blabagno</em></h1>
+      <p>Founder & Lead Strategist at Cinfluence. Built from years of real entrepreneurial experience — not a template.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOUNDER SPLIT -->
+<div class="founder-split fade-up">
+  <div class="founder-photo-col">
+    <!-- SWAP: replace img-ph with <img src="img/founder.jpg" alt="Hyacinth Blabagno"> -->
+    <div class="img-ph">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+      </svg>
+      <div class="ph-title">Founder Photo</div>
+      <div class="ph-sub">Replace with IMG_0713-2.jpg</div>
+    </div>
+  </div>
+  <div class="founder-story-col">
+    <span class="label">Before Cinfluence had a name</span>
+    <h2>Cinth had<br>a <em>hustle</em>.</h2>
+    <p>While still a student, she began as a reseller — learning firsthand how to market products, connect with customers, and generate sales through persistence and creativity alone. No playbook. No funding. Just the determination to figure it out.</p>
+    <p>By 16, she owned and operated her own store in the Philippines — a milestone that caught the attention of national television. The message that resonated wasn't what she built, but why: age is never a valid reason not to start.</p>
+    <a href="#story" class="btn btn-outline-light">Read the Full Story</a>
+  </div>
+</div>
+
+<!-- TIMELINE STORY -->
+<section class="about-timeline" id="story">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">The Journey</span>
+      <h2 class="heading-lg">Every chapter taught<br>her something <em>different</em>.</h2>
+    </div>
+    <div class="timeline fade-up">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">The Beginning</div>
+        <h3>Reseller. Student. Entrepreneur.</h3>
+        <p>Before she had a business name, Cinth had a hustle. She began as a reseller while still in school — learning to market products, connect with customers, and generate sales through persistence and creativity alone. That early chapter planted the seed of everything that followed.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Age 16</div>
+        <h3>The Store. The Camera. The Stage.</h3>
+        <p>She owned and operated her own store in the Philippines — a milestone that caught the attention of national television. Recognized not just for what she built, but for why it mattered. Alongside the store, she was already creating content: vlogging, filming, editing, building an online presence long before "content creator" was a career title. That love for storytelling and audience engagement never left.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Building</div>
+        <h3>Across Industries, Never in One Lane.</h3>
+        <p>Cinth immersed herself in gadgets, fashion, food, and hospitality — handling operations, branding, marketing, and sales at every level. She owned and managed a restobar, where branding lived in atmosphere and experience, not just a feed. Each industry taught her something different about how brands grow and how people decide to trust a business.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Strategy</div>
+        <h3>Financial Advisor. Trust Builder.</h3>
+        <p>Working as a Financial Advisor sharpened a different set of skills: communication, professionalism, client relationship management, and an understanding of consumer behavior and long-term thinking. She learned how to build trust with people who had something real at stake — and how to deliver value that outlasts a single conversation. That experience carries directly into how she works with clients today.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">The Pivot</div>
+        <h3>Redirected Into Digital.</h3>
+        <p>When personal and business challenges mounted, Cinth didn't retreat from marketing — she redirected into it. She moved into the digital space as a Social Media Manager and Virtual Assistant, helping brands build online presence, create content with purpose, and develop real audience relationships. Freelance work became a vision. The vision became a business.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2026</div>
+        <h3>Cinfluence.</h3>
+        <p>Today, Cinfluence is the culmination of every role she has held, every industry she has navigated, and every lesson — successful or painful — she has carried forward. A remote digital marketing business built on strategy, creativity, authenticity, and impactful storytelling. More than a service, it represents a belief: that experience, passion, and consistency create opportunity — regardless of age, background, or how many times something didn't work the first time.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="about-values">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">What Drives Us</span>
+      <h2 class="heading-lg">Five values that shape<br>every piece of <em>work</em>.</h2>
+    </div>
+    <div class="values-grid-5 fade-up">
+      <div class="value-tile">
+        <div class="value-tile-num">01</div>
+        <h4>Authenticity</h4>
+        <p>Everything created here is rooted in real experience — not templates, not trends. Cinth built businesses before she had a business plan. That credibility shows in the work.</p>
+      </div>
+      <div class="value-tile">
+        <div class="value-tile-num">02</div>
+        <h4>Resilience</h4>
+        <p>Every pivot, challenge, and restart taught something. Cinfluence was built through difficulty — not despite it. That's the brand's most honest story and greatest differentiator.</p>
+      </div>
+      <div class="value-tile">
+        <div class="value-tile-num">03</div>
+        <h4>Intentionality</h4>
+        <p>Nothing is posted without purpose. Every caption, every strategy, every piece of content has a reason behind it. This is what separates managed social media from random posting.</p>
+      </div>
+      <div class="value-tile">
+        <div class="value-tile-num">04</div>
+        <h4>Connection</h4>
+        <p>Across every industry she's worked in, one thing stayed constant: relationships build businesses. Cinfluence doesn't just manage accounts — it builds communities.</p>
+      </div>
+      <div class="value-tile">
+        <div class="value-tile-num">05</div>
+        <h4>Courage</h4>
+        <p>She started a store at 16. Pivoted industries, rebuilt from setbacks, launched a business from scratch in 2026. Age, background, or failure are never valid reasons not to start.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="about-philosophy fade-up">
+  <div class="container">
+    <p class="philosophy-quote">"We know what works because we've done it — across industries, from the ground up. Your brand deserves a strategy that <em>actually sees you</em> — not a template copied from someone else's playbook."</p>
+    <p class="philosophy-attr">— Cinth, Founder of Cinfluence</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="statement-band" style="padding:100px 0">
+  <div class="container fade-up">
+    <h2 class="heading-lg" style="color:var(--ivory);margin-bottom:24px">Work with someone<br>who <em>actually</em> gets it.</h2>
+    <p style="color:rgba(248,247,242,.5);margin-bottom:40px;max-width:460px;margin-left:auto;margin-right:auto">Book a free discovery call — no pitch, no pressure. Just a real conversation about your brand.</p>
+    <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory">Book a Discovery Call</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo">Cinfluence</span>
+        <p class="footer-tagline">Strategy-led social media management and content production. Influence with intention.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="services.html">Social Media Management</a></li>
+          <li><a href="services.html">Short-Form Content</a></li>
+          <li><a href="services.html">AI Content Production</a></li>
+          <li><a href="services.html">Influencer &amp; UGC</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul class="footer-links">
+          <li><a href="https://instagram.com/cinfluence.digital" target="_blank">Instagram</a></li>
+          <li><a href="https://tiktok.com/@cinfluence.digital" target="_blank">TikTok</a></li>
+          <li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank">LinkedIn</a></li>
+          <li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Cinfluence. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com/cinfluence.digital" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@cinfluence.digital" target="_blank">TikTok</a>
+        <a href="mailto:hello@cinfluencedigital.com">Email</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

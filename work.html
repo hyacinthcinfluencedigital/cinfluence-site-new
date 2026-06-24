@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Work — CINFLUENCE</title>
+<meta name="description" content="Selected client work — case studies, Reel samples, and content production from Cinfluence."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+/* Filter tabs */
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+.filter-btn {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--stone);
+  color: var(--taupe);
+  transition: all .2s;
+}
+.filter-btn.active,
+.filter-btn:hover { background: var(--espresso); color: var(--ivory); border-color: var(--espresso); }
+
+/* Case study grid */
+.case-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 64px; }
+.case-card { position: relative; }
+.case-card-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--stone);
+  margin-bottom: 24px;
+}
+.case-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.case-card:hover .case-card-img img { transform: scale(1.04); }
+.case-tag {
+  position: absolute;
+  top: 20px; left: 20px;
+  background: var(--espresso);
+  color: var(--ivory);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  z-index: 2;
+}
+.case-card-img .img-ph { aspect-ratio: 4/5; min-height: auto; }
+.case-wide .case-card-img .img-ph { aspect-ratio: 8/5; }
+.case-wide { grid-column: span 2; }
+.case-meta { display: flex; flex-direction: column; gap: 8px; }
+.case-meta .label { color: var(--gold); }
+.case-meta h3 { font-family: var(--ff-serif); font-size: 1.3rem; }
+.case-meta p  { font-size: .85rem; color: var(--taupe); line-height: 1.7; }
+.case-stats { display: flex; gap: 24px; margin-top: 12px; padding-top: 16px; border-top: 1px solid var(--stone); }
+.case-stat span  { display: block; font-family: var(--ff-serif); font-size: 1.5rem; font-weight: 400; color: var(--espresso); }
+.case-stat small { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--taupe); }
+
+/* Scroll strip (dark section on work page) */
+.work-strip { background: var(--espresso); padding: 100px 0; overflow: hidden; }
+.strip-video-cell {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding-bottom: 20px; position: relative;
+}
+.strip-video-cell video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.strip-bg { position: absolute; inset: 0; }
+.strip-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(38,28,19,.82) 0%, transparent 55%); z-index: 1; }
+.strip-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%); z-index: 2; width: 36px; height: 36px; border-radius: 50%; background: rgba(184,147,90,.85); display: flex; align-items: center; justify-content: center; }
+.strip-info { position: relative; z-index: 2; text-align: center; }
+.strip-info span  { display: block; font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(248,247,242,.6); margin-bottom: 3px; }
+.strip-info strong{ display: block; font-size: .72rem; font-weight: 700; color: var(--ivory); }
+.sb1{background:linear-gradient(145deg,#2d1f1a,#4a2e25)}
+.sb2{background:linear-gradient(145deg,#1a2030,#2a3545)}
+.sb3{background:linear-gradient(145deg,#1e2a1e,#2d3d2d)}
+.sb4{background:linear-gradient(145deg,#2a1f2a,#3d2d3d)}
+.sb5{background:linear-gradient(145deg,#2a2010,#3d3015)}
+.sb6{background:linear-gradient(145deg,#101a2a,#1a2535)}
+.sb7{background:linear-gradient(145deg,#251a10,#382510)}
+
+/* Graphics / Design samples */
+.design-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 52px; }
+.design-item { aspect-ratio: 1; background: var(--stone); position: relative; overflow: hidden; }
+.design-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s var(--ease); }
+.design-item:hover img { transform: scale(1.06); }
+.design-item .img-ph { aspect-ratio: 1; min-height: auto; font-size: .75rem; }
+
+@media (max-width: 1024px) {
+  .case-grid { grid-template-columns: 1fr 1fr; }
+  .case-wide { grid-column: span 1; }
+  .case-wide .case-card-img .img-ph { aspect-ratio: 4/5; }
+  .design-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
+  .case-grid { grid-template-columns: 1fr; }
+  .design-grid { grid-template-columns: repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Cinfluence</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Book A Call</a>
+      <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" class="btn btn-primary" onclick="closeMenu()">Book A Call</a>
+</div>
+
+<div class="nav-offset">
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <span class="label">Portfolio</span>
+      <h1 class="heading-xl">Selected <em>Work</em></h1>
+      <p>A curated selection of client work across social media management, short-form content, influencer campaigns, and paid advertising.</p>
+      <div class="filter-tabs">
+        <button class="filter-btn active">All Work</button>
+        <button class="filter-btn">Social Media</button>
+        <button class="filter-btn">Short-Form Video</button>
+        <button class="filter-btn">Influencer & UGC</button>
+        <button class="filter-btn">Paid Ads</button>
+        <button class="filter-btn">Graphic Design</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Case Studies -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">Case Studies</span>
+      <h2 class="heading-lg">Client <em>Results</em></h2>
+    </div>
+    <div class="case-grid">
+
+      <!-- iLuxe Aesthetic Center — Wide -->
+      <div class="case-card case-wide fade-up">
+        <div class="case-card-img">
+          <div class="case-tag">Medical Aesthetics</div>
+          <!-- ATTACH: work-iluxe.jpg — 1600×1000px -->
+          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">iLuxe Aesthetic Center — Hero</div><div class="ph-sub">Attach: work-iluxe.jpg · 1600×1000px</div></div>
+        </div>
+        <div class="case-meta">
+          <span class="label">iLuxe Aesthetic Center</span>
+          <h3>Social Media Management + Brand Content</h3>
+          <p>Built iLuxe's social presence with a polished, clinic-appropriate aesthetic — consistent content, purposeful captions, and a brand voice that reflects the premium experience clients receive in-clinic.</p>
+          <div class="case-stats">
+            <div class="case-stat"><span>↑</span><small>Engagement Rate</small></div>
+            <div class="case-stat"><span>90</span><small>Days to Visible Growth</small></div>
+            <div class="case-stat"><span>✦</span><small>Consistent Brand Aesthetic</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hair Solution Nails & Spa -->
+      <div class="case-card fade-up">
+        <div class="case-card-img">
+          <div class="case-tag">Beauty & Wellness</div>
+          <!-- ATTACH: work-hair-solution.jpg — 800×1000px -->
+          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">Hair Solution Nails &amp; Spa — Case Study</div><div class="ph-sub">Attach: work-hair-solution.jpg · 800×1000px</div></div>
+        </div>
+        <div class="case-meta">
+          <span class="label">Hair Solution Nails &amp; Spa</span>
+          <h3>Content Strategy + Social Media Management</h3>
+          <p>Developed a content-first strategy that brought Hair Solution's services to life online — attracting new clients through consistent, visually engaging posts and community-building.</p>
+          <div class="case-stats">
+            <div class="case-stat"><span>↑</span><small>Local Reach</small></div>
+            <div class="case-stat"><span>✦</span><small>Consistent Content Presence</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proper Ecom -->
+      <div class="case-card fade-up">
+        <div class="case-card-img">
+          <div class="case-tag">DTC / E-Commerce</div>
+          <!-- ATTACH: work-proper-ecom.jpg — 800×1000px -->
+          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">Proper Ecom — Case Study</div><div class="ph-sub">Attach: work-proper-ecom.jpg · 800×1000px</div></div>
+        </div>
+        <div class="case-meta">
+          <span class="label">Proper Ecom</span>
+          <h3>AI Content Production Setup</h3>
+          <p>Designed and implemented a full AI content production workflow that scaled their output without increasing headcount.</p>
+          <div class="case-stats">
+            <div class="case-stat"><span>4×</span><small>Content Output</small></div>
+            <div class="case-stat"><span>-60%</span><small>Production Time</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flow -->
+      <div class="case-card fade-up">
+        <div class="case-card-img">
+          <div class="case-tag">Tech / SaaS</div>
+          <!-- ATTACH: work-flow.jpg — 800×1000px -->
+          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">Flow — Case Study</div><div class="ph-sub">Attach: work-flow.jpg · 800×1000px</div></div>
+        </div>
+        <div class="case-meta">
+          <span class="label">Flow</span>
+          <h3>Social Presence Built from Zero</h3>
+          <p>Launched Flow's social media presence from scratch — brand voice, visual identity, and content strategy aligned to product launch.</p>
+          <div class="case-stats">
+            <div class="case-stat"><span>0→5K</span><small>Followers at Launch</small></div>
+            <div class="case-stat"><span>8%</span><small>Avg. Engagement Rate</small></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales Igniters -->
+      <div class="case-card fade-up">
+        <div class="case-card-img">
+          <div class="case-tag">B2B / Finance</div>
+          <!-- ATTACH: work-sales-igniters.jpg — 800×1000px -->
+          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">Sales Igniters — Case Study</div><div class="ph-sub">Attach: work-sales-igniters.jpg · 800×1000px</div></div>
+        </div>
+        <div class="case-meta">
+          <span class="label">Sales Igniters</span>
+          <h3>Lead-Gen Content Strategy</h3>
+          <p>Rebuilt their content approach from brand awareness to lead generation — attracting qualified inbound interest through LinkedIn and Instagram.</p>
+          <div class="case-stats">
+            <div class="case-stat"><span>+140%</span><small>Inbound Leads</small></div>
+            <div class="case-stat"><span>2.4×</span><small>Profile Visits</small></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Reel Showcase Strip -->
+<section class="work-strip">
+  <div class="container">
+    <div class="section-header fade-up" style="margin-bottom:52px">
+      <span class="label" style="color:var(--gold)">Short-Form Content</span>
+      <h2 class="heading-lg" style="color:var(--ivory)">Reels & <em style="color:var(--gold)">Short-Form</em></h2>
+      <p class="body-sm" style="color:rgba(248,247,242,.5);margin-top:16px">Hover to pause. Videos play with audio on click.</p>
+    </div>
+  </div>
+  <div class="scroll-strip-wrap">
+    <div class="scroll-track">
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty</span><strong>Hair Solution</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty</span><strong>iLuxe</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>DTC</span><strong>Proper Ecom</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Tech</span><strong>Flow</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Hair</span><strong>Hair Solution</strong></div></div></div></div></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty</span><strong>Hair Solution</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty</span><strong>iLuxe</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>DTC</span><strong>Proper Ecom</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Tech</span><strong>Flow</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Hair</span><strong>Hair Solution</strong></div></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Graphic Design / Static Samples -->
+<section class="section section--stone">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">Graphic Design</span>
+      <h2 class="heading-lg">Static & <em>Carousel</em> Content</h2>
+    </div>
+    <div class="design-grid fade-up">
+      <!-- ATTACH: design samples as design-1.jpg through design-8.jpg, 1:1 ratio -->
+      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 1</div><div class="ph-sub">design-1.jpg · 1:1</div></div></div>
+      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 2</div><div class="ph-sub">design-2.jpg · 1:1</div></div></div>
+      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 3</div><div class="ph-sub">design-3.jpg · 1:1</div></div></div>
+      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 4</div><div class="ph-sub">design-4.jpg · 1:1</div></div></div>
+      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 5</div><div class="ph-sub">design-5.jpg · 1:1</div></div></div>
+      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 6</div><div class="ph-sub">design-6.jpg · 1:1</div></div></div>
+      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 7</div><div class="ph-sub">design-7.jpg · 1:1</div></div></div>
+      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 8</div><div class="ph-sub">design-8.jpg · 1:1</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="statement-band" style="padding:100px 0">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="heading-lg" style="color:var(--ivory);margin-bottom:24px">Want results like these<br>for your <em>brand?</em></h2>
+      <a href="contact.html" class="btn btn-ivory" style="margin-top:16px">Book a Discovery Call</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><span class="footer-logo">Cinfluence</span><p class="footer-tagline">A premium social media management and content production studio.</p></div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html">Social Media Management</a></li><li><a href="services.html">Short-Form Content</a></li><li><a href="services.html">AI Content Production</a></li><li><a href="services.html">Influencer & UGC</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Connect</h5><ul class="footer-links"><li><a href="https://instagram.com/cinfluencedigital" target="_blank">Instagram</a></li><li><a href="https://tiktok.com/@cinfluencedigital" target="_blank">TikTok</a></li><li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cinfluence. All rights reserved.</span><div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

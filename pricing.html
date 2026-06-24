@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pricing — CINFLUENCE</title>
+<meta name="description" content="Simple, transparent pricing for social media management, content production, and digital growth services."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+  align-items: start;
+  margin-top: 64px;
+}
+.pricing-card {
+  padding: 52px 44px;
+  position: relative;
+  transition: transform .3s var(--ease), box-shadow .3s;
+}
+.pricing-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(38,28,19,.1); }
+.pricing-card--light { background: var(--white); }
+.pricing-card--featured { background: var(--espresso); color: var(--ivory); }
+.pricing-featured-tag {
+  position: absolute;
+  top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--white);
+  font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: 6px 20px;
+  white-space: nowrap;
+}
+.pricing-tier { font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+.pricing-price { font-family: var(--ff-serif); font-size: 3.2rem; font-weight: 400; line-height: 1; margin-bottom: 6px; }
+.pricing-period { font-size: .8rem; color: var(--taupe); margin-bottom: 6px; }
+.pricing-card--featured .pricing-period { color: rgba(248,247,242,.5); }
+.pricing-founding { font-size: .75rem; color: var(--gold); font-weight: 600; margin-bottom: 28px; display: block; }
+.pricing-divider { border: none; border-top: 1px solid var(--stone); margin: 24px 0; }
+.pricing-card--featured .pricing-divider { border-color: rgba(248,247,242,.12); }
+.pricing-desc { font-size: .9rem; color: var(--taupe); line-height: 1.75; margin-bottom: 28px; }
+.pricing-card--featured .pricing-desc { color: rgba(248,247,242,.6); }
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 40px; }
+.pricing-feature {
+  font-size: .85rem;
+  padding-left: 20px;
+  position: relative;
+  color: var(--espresso);
+  line-height: 1.5;
+}
+.pricing-card--featured .pricing-feature { color: rgba(248,247,242,.82); }
+.pricing-feature::before { content: ''; position: absolute; left: 0; top: 9px; width: 8px; height: 1px; background: var(--gold); }
+
+/* Comparison table */
+.compare-table { width: 100%; border-collapse: collapse; margin-top: 60px; }
+.compare-table th, .compare-table td { padding: 18px 24px; text-align: left; border-bottom: 1px solid var(--stone); font-size: .85rem; }
+.compare-table th { font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--taupe); background: var(--stone); }
+.compare-table th:first-child { color: var(--espresso); }
+.compare-table td:first-child { font-weight: 600; color: var(--espresso); }
+.compare-table td:not(:first-child) { text-align: center; color: var(--taupe); }
+.check { color: var(--gold); font-size: 1rem; }
+.dash  { color: var(--stone); }
+
+/* Addons */
+.addons-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--stone); margin-top: 52px; }
+.addon-item { background: var(--white); padding: 28px 24px; }
+.addon-item h4 { font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
+.addon-item p  { font-size: .8rem; color: var(--taupe); line-height: 1.6; }
+
+/* FAQ */
+.faq-list { max-width: 700px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--stone); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  text-align: left; padding: 26px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: .9rem; font-weight: 600; color: var(--espresso); gap: 20px;
+}
+.faq-icon { width: 18px; height: 18px; flex-shrink: 0; color: var(--gold); transition: transform .3s var(--ease); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s var(--ease), padding .3s; font-size: .88rem; color: var(--taupe); line-height: 1.8; }
+.faq-item.open .faq-a   { max-height: 200px; padding-bottom: 26px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.strategy-intensive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+@media (max-width: 1024px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+  .addons-grid { grid-template-columns: repeat(2,1fr); }
+  .compare-table { display: none; }
+  .strategy-intensive-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 768px) {
+  .pricing-card { padding: 44px 28px; }
+  .addons-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Cinfluence</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Book A Call</a>
+      <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" class="btn btn-primary" onclick="closeMenu()">Book A Call</a>
+</div>
+
+<div class="nav-offset">
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <span class="label">Investment</span>
+      <h1 class="heading-xl">Simple, <em>Transparent</em><br>Pricing</h1>
+      <p>Flexible packages designed to support brands at every stage of growth. No hidden fees, no surprises.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing Cards -->
+<section class="section section--stone">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="label">Retainer Packages</span>
+      <h2 class="heading-lg">Choose Your <em>Package</em></h2>
+      <p class="body-lg">All packages include a 3-month minimum. No lock-in after that — continue month-to-month.</p>
+    </div>
+    <div class="pricing-grid fade-up">
+
+      <!-- Starter -->
+      <div class="pricing-card pricing-card--light">
+        <span class="pricing-tier">Starter</span>
+        <div class="pricing-price">$800</div>
+        <div class="pricing-period">/ month</div>
+        
+        <hr class="pricing-divider"/>
+        <p class="pricing-desc">The essential package for brands ready to build a consistent, quality social presence.</p>
+        <ul class="pricing-features">
+          <li class="pricing-feature">Social Media Management — 1 platform</li>
+          <li class="pricing-feature">12 posts per month</li>
+          <li class="pricing-feature">4 Reels or short-form videos</li>
+          <li class="pricing-feature">Captions + hashtag strategy</li>
+          <li class="pricing-feature">Content calendar</li>
+          <li class="pricing-feature">Monthly performance report</li>
+          <li class="pricing-feature">1 strategy call per month</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline" style="width:100%;text-align:center">Get Started</a>
+      </div>
+
+      <!-- Growth — Featured -->
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-featured-tag">Most Popular</div>
+        <span class="pricing-tier">Growth</span>
+        <div class="pricing-price">$1,500</div>
+        <div class="pricing-period">/ month</div>
+        
+        <hr class="pricing-divider"/>
+        <p class="pricing-desc">Full-service management for brands scaling their content and reach.</p>
+        <ul class="pricing-features">
+          <li class="pricing-feature">Social Media Management — 2 platforms</li>
+          <li class="pricing-feature">20 posts per month</li>
+          <li class="pricing-feature">8 Reels + AI content production</li>
+          <li class="pricing-feature">Influencer / UGC sourcing</li>
+          <li class="pricing-feature">Community management</li>
+          <li class="pricing-feature">Content calendar + brand voice guide</li>
+          <li class="pricing-feature">Bi-weekly strategy calls</li>
+          <li class="pricing-feature">Advanced analytics reporting</li>
+          <li class="pricing-feature">Priority support</li>
+        </ul>
+        <a href="contact.html" class="btn btn-gold" style="width:100%;text-align:center">Get Started</a>
+      </div>
+
+      <!-- Authority -->
+      <div class="pricing-card pricing-card--light">
+        <span class="pricing-tier">Premium</span>
+        <div class="pricing-price">$2,500</div>
+        <div class="pricing-period">/ month</div>
+        
+        <hr class="pricing-divider"/>
+        <p class="pricing-desc">The full authority package for premium brands demanding end-to-end execution.</p>
+        <ul class="pricing-features">
+          <li class="pricing-feature">Social Media Management — 3+ platforms</li>
+          <li class="pricing-feature">Unlimited content production</li>
+          <li class="pricing-feature">Paid advertising management</li>
+          <li class="pricing-feature">Email marketing setup + campaigns</li>
+          <li class="pricing-feature">Full influencer campaign management</li>
+          <li class="pricing-feature">Dedicated strategy partner</li>
+          <li class="pricing-feature">Weekly calls + priority Slack access</li>
+          <li class="pricing-feature">Quarterly brand review</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="width:100%;text-align:center">Get Started</a>
+      </div>
+
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="fade-up" style="overflow-x:auto;margin-top:60px">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th>Growth</th>
+            <th>Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Platforms managed</td><td>1</td><td>2</td><td>3+</td></tr>
+          <tr><td>Posts per month</td><td>12</td><td>20</td><td>Unlimited</td></tr>
+          <tr><td>Short-form videos (Reels)</td><td>4</td><td>8</td><td>Unlimited</td></tr>
+          <tr><td>AI content production</td><td class="dash">—</td><td class="check">✦</td><td class="check">✦</td></tr>
+          <tr><td>Community management</td><td class="dash">—</td><td class="check">✦</td><td class="check">✦</td></tr>
+          <tr><td>Influencer / UGC sourcing</td><td class="dash">—</td><td class="check">✦</td><td class="check">✦</td></tr>
+          <tr><td>Paid advertising</td><td class="dash">—</td><td class="dash">—</td><td class="check">✦</td></tr>
+          <tr><td>Email marketing</td><td class="dash">—</td><td class="dash">—</td><td class="check">✦</td></tr>
+          <tr><td>Strategy calls</td><td>Monthly</td><td>Bi-weekly</td><td>Weekly</td></tr>
+          <tr><td>Analytics reporting</td><td>Monthly</td><td>Advanced monthly</td><td>Weekly + quarterly</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Strategy Intensive -->
+<section class="section">
+  <div class="container">
+    <div class="strategy-intensive-grid fade-up">
+      <div>
+        <span class="label" style="color:var(--gold);display:block;margin-bottom:16px">Not ready for a retainer?</span>
+        <h2 class="heading-lg">Strategy <em>Intensive</em></h2>
+        <p class="body-lg" style="margin:20px 0">A one-time 90-minute deep-dive session that gives you a full social media strategy, content framework, and 90-day action plan — with no ongoing commitment required.</p>
+        <div style="font-family:var(--ff-serif);font-size:3rem;font-weight:400;margin-bottom:8px">$300</div>
+        <p style="font-size:.8rem;color:var(--taupe);margin-bottom:32px">One-time payment · Delivered within 5 business days</p>
+        <a href="contact.html" class="btn btn-primary">Book a Strategy Intensive</a>
+      </div>
+      <div style="background:var(--stone);padding:52px;display:flex;flex-direction:column;gap:20px">
+        <div class="label" style="color:var(--gold)">What's included</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:14px">
+          <li style="font-size:.88rem;padding-left:18px;position:relative;color:var(--espresso)"><span style="position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold);display:block"></span>90-minute strategy session via Zoom</li>
+          <li style="font-size:.88rem;padding-left:18px;position:relative;color:var(--espresso)"><span style="position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold);display:block"></span>Full brand and competitor audit</li>
+          <li style="font-size:.88rem;padding-left:18px;position:relative;color:var(--espresso)"><span style="position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold);display:block"></span>Platform-specific content strategy</li>
+          <li style="font-size:.88rem;padding-left:18px;position:relative;color:var(--espresso)"><span style="position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold);display:block"></span>90-day content calendar template</li>
+          <li style="font-size:.88rem;padding-left:18px;position:relative;color:var(--espresso)"><span style="position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold);display:block"></span>Brand voice guide</li>
+          <li style="font-size:.88rem;padding-left:18px;position:relative;color:var(--espresso)"><span style="position:absolute;left:0;top:9px;width:8px;height:1px;background:var(--gold);display:block"></span>Written action plan delivered as a PDF</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Add-Ons -->
+<section class="section section--stone">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">Extras</span>
+      <h2 class="heading-lg">Add-On <em>Services</em></h2>
+    </div>
+    <div class="addons-grid fade-up">
+      <div class="addon-item"><h4>Additional Reels</h4><p>Extra short-form video production beyond your package allocation.</p></div>
+      <div class="addon-item"><h4>Content Day</h4><p>On-location or studio shoot for branded photo and video assets.</p></div>
+      <div class="addon-item"><h4>UGC Campaign</h4><p>Standalone UGC creator sourcing, briefing, and delivery.</p></div>
+      <div class="addon-item"><h4>Paid Ad Creative</h4><p>Static and video ad creative for Meta or Google.</p></div>
+      <div class="addon-item"><h4>Email Setup</h4><p>Platform setup, welcome sequence, and first campaign.</p></div>
+      <div class="addon-item"><h4>Analytics Audit</h4><p>Deep-dive analysis of your current social performance.</p></div>
+      <div class="addon-item"><h4>Brand Refresh</h4><p>Visual direction update — color, typography, and aesthetic audit.</p></div>
+      <div class="addon-item"><h4>Website Design</h4><p>Brand-aligned website design and development.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="label">Pricing Questions</span>
+      <h2 class="heading-lg">Common <em>Questions</em></h2>
+    </div>
+    <div class="faq-list fade-up">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the minimum commitment?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">We ask for a 3-month minimum on all retainer packages. Social media growth is a compounding process — 3 months is the realistic minimum to see meaningful, data-backed results. After that, we work month-to-month.</div></div>
+
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you offer custom packages?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Yes. If none of the packages fit your needs, we'll build a custom proposal. Book a discovery call and we'll figure out what makes sense for your brand, budget, and goals.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">We accept bank transfers, PayPal, Wise, and major credit cards. Invoices are issued monthly in advance. Payment details are confirmed during onboarding.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is ad spend included in the pricing?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">No. Ad spend (the budget you put into Meta or Google) is separate from our management fee and paid directly to the ad platforms. Our fee covers strategy, creative, and campaign management.</div></div>
+    </div>
+    <div style="text-align:center;margin-top:48px" class="fade-up">
+      <a href="contact.html" class="btn btn-primary">Still Have Questions?</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="statement-band" style="padding:100px 0">
+  <div class="container fade-up">
+    <h2 class="heading-lg" style="color:var(--ivory);margin-bottom:24px">Ready to invest in<br>your brand's <em>growth?</em></h2>
+    <p style="color:rgba(248,247,242,.5);margin-bottom:40px">Discovery calls are free and there's no obligation.</p>
+    <a href="contact.html" class="btn btn-ivory">Book a Discovery Call</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><span class="footer-logo">Cinfluence</span><p class="footer-tagline">A premium social media management and content production studio.</p></div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html">Social Media Management</a></li><li><a href="services.html">Short-Form Content</a></li><li><a href="services.html">AI Content Production</a></li><li><a href="services.html">Influencer & UGC</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Connect</h5><ul class="footer-links"><li><a href="https://instagram.com/cinfluencedigital" target="_blank">Instagram</a></li><li><a href="https://tiktok.com/@cinfluencedigital" target="_blank">TikTok</a></li><li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cinfluence. All rights reserved.</span><div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

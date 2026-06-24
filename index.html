@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cinfluence — Specialist Content Studio for Beauty, Wellness & Aesthetics</title>
+<meta name="description" content="Cinfluence is a founder-led specialist content studio helping beauty, wellness, med spa, skincare, and aesthetic brands build trust, authority, and visibility through strategic content systems."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+
+/* ── HERO ─────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  background: var(--espresso);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: var(--nav-h);
+  position: relative;
+  overflow: hidden;
+}
+.hero-noise {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 110% 60%, rgba(184,147,90,.07), transparent 60%),
+              radial-gradient(ellipse 40% 60% at -10% 40%, rgba(58,65,55,.4), transparent 60%);
+  pointer-events: none;
+}
+.hero-grid-lines {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(248,247,242,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248,247,242,.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px 80px 0;
+}
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.hero-eyebrow-line { width: 32px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.hero-eyebrow .label { color: rgba(184,147,90,.9); }
+.hero-h1 { margin-bottom: 36px; color: var(--ivory); }
+.hero-h1 em { color: var(--gold); font-style: italic; }
+.hero-sub {
+  max-width: 440px;
+  margin-bottom: 56px;
+  font-size: .97rem;
+  line-height: 1.95;
+  color: rgba(248,247,242,.5);
+}
+.hero-right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 80px 0;
+}
+.hero-image-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-image-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.hero-image-wrap .img-ph {
+  min-height: 100%;
+  background: rgba(38,28,19,.4);
+  border: none;
+}
+/* Overlay scrim for when real photo is present */
+.hero-image-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--espresso) 0%, transparent 30%);
+  pointer-events: none;
+}
+/* Floating stat cards on hero */
+.hero-stat-cards {
+  position: absolute;
+  bottom: 72px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+  z-index: 4;
+  width: 320px;
+}
+.hero-stat {
+  background: rgba(38,28,19,.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(184,147,90,.15);
+  padding: 20px 24px;
+  flex: 1;
+}
+.hero-stat-num {
+  font-family: var(--ff-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--ivory);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.hero-stat-num em { color: var(--gold); font-style: normal; }
+.hero-stat-label {
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(248,247,242,.4);
+}
+
+/* ── MARQUEE BAR ──────────────────────────────────── */
+.marquee-bar {
+  background: var(--gold);
+  padding: 16px 0;
+  overflow: hidden;
+  position: relative;
+}
+.marquee-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  animation: marqueeLeft 20s linear infinite;
+}
+.marquee-bar:hover .marquee-track { animation-play-state: paused; }
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 32px;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--espresso);
+  white-space: nowrap;
+}
+.marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--espresso); opacity: .35; flex-shrink: 0; }
+
+/* ── TRUST BAR ────────────────────────────────────── */
+.trust-bar { padding: 72px 0; border-bottom: 1px solid var(--stone); }
+.trust-inner { display: flex; flex-direction: column; align-items: center; gap: 36px; }
+.trust-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 48px; }
+.trust-item {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  opacity: .45;
+  transition: opacity .2s;
+}
+.trust-item:hover { opacity: 1; }
+
+/* ── ABOUT STRIP ──────────────────────────────────── */
+.about-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 580px;
+}
+.about-strip-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--stone);
+}
+.about-strip-img img { width: 100%; height: 100%; object-fit: cover; }
+.about-strip-img .img-ph { min-height: 580px; }
+.about-strip-content {
+  background: var(--espresso);
+  padding: 100px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  position: relative;
+}
+.about-strip-content::before {
+  content: '"';
+  font-family: var(--ff-serif);
+  font-size: 18rem;
+  line-height: .8;
+  color: rgba(184,147,90,.06);
+  position: absolute;
+  top: 20px; left: 60px;
+  font-weight: 400;
+  pointer-events: none;
+}
+.about-strip-content .label { color: var(--gold); }
+.about-strip-content p {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(248,247,242,.88);
+  line-height: 1.65;
+  position: relative;
+}
+.about-strip-content p strong {
+  font-style: normal;
+  color: var(--gold);
+  font-weight: 400;
+}
+.about-strip-byline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+.about-strip-byline-line { width: 28px; height: 1px; background: rgba(184,147,90,.5); }
+.about-strip-byline span { font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(248,247,242,.45); }
+
+/* ── SERVICES ─────────────────────────────────────── */
+.services-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.svc-editorial-item {
+  padding: 64px 56px;
+  border-right: 1px solid var(--stone);
+  border-bottom: 1px solid var(--stone);
+  position: relative;
+  transition: background .25s;
+  overflow: hidden;
+}
+.svc-editorial-item:nth-child(even) { border-right: none; }
+.svc-editorial-item:nth-child(5),
+.svc-editorial-item:nth-child(6) { border-bottom: none; }
+.svc-editorial-item:hover { background: var(--white); }
+.svc-editorial-item:hover .svc-editorial-arrow { transform: translate(4px, -4px); opacity: 1; }
+.svc-num {
+  font-family: var(--ff-serif);
+  font-size: 4.5rem;
+  font-weight: 400;
+  color: rgba(83,65,42,.07);
+  line-height: 1;
+  position: absolute;
+  top: 32px; right: 40px;
+  transition: color .25s;
+}
+.svc-editorial-item:hover .svc-num { color: rgba(184,147,90,.1); }
+.svc-editorial-title {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  font-weight: 400;
+  color: var(--espresso);
+  margin-bottom: 16px;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+.svc-editorial-desc {
+  font-size: .84rem;
+  color: var(--taupe);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  max-width: 380px;
+}
+.svc-editorial-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--espresso);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 3px;
+  transition: color .2s, gap .2s;
+}
+.svc-editorial-link:hover { color: var(--gold); gap: 14px; }
+.svc-editorial-arrow {
+  opacity: .6;
+  transition: transform .25s var(--ease), opacity .25s;
+}
+/* Wide CTA cell */
+.svc-cta-cell {
+  grid-column: 1 / -1;
+  background: var(--sage);
+  padding: 64px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.svc-cta-cell p {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  color: var(--ivory);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.35;
+  max-width: 520px;
+}
+.svc-cta-cell p strong { font-style: normal; color: rgba(248,247,242,.5); font-weight: 400; font-size: .65em; display: block; margin-bottom: 6px; letter-spacing: .18em; text-transform: uppercase; font-family: var(--ff-sans); }
+
+/* ── WORK PREVIEW ─────────────────────────────────── */
+.work-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.wp-card { position: relative; cursor: pointer; }
+.wp-card-img {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: var(--stone);
+  position: relative;
+}
+.wp-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .55s var(--ease); }
+.wp-card:hover .wp-card-img img { transform: scale(1.04); }
+.wp-card-img .img-ph { aspect-ratio: 4/5; min-height: auto; }
+.wp-card-info { padding: 28px 0 0; }
+.wp-card-info .label { color: var(--gold); display: block; margin-bottom: 10px; }
+.wp-card-info h3 { font-family: var(--ff-serif); font-size: 1.1rem; margin-bottom: 8px; }
+.wp-card-info span { font-size: .78rem; color: var(--taupe); font-weight: 500; line-height: 1.6; display: block; }
+
+/* ── STATEMENT BAND ───────────────────────────────── */
+.statement-band {
+  background: var(--espresso);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+.statement-band-rule {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(184,147,90,.3) 30%, rgba(184,147,90,.3) 70%, transparent);
+}
+.statement-band-rule-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(184,147,90,.3) 30%, rgba(184,147,90,.3) 70%, transparent);
+}
+.statement-inner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: center;
+}
+.statement-label-col { border-right: 1px solid rgba(248,247,242,.07); padding-right: 80px; }
+.statement-label-col .label { color: var(--gold); display: block; margin-bottom: 20px; }
+.statement-label-col p { font-size: .82rem; color: rgba(248,247,242,.4); line-height: 1.8; }
+.statement-text { font-family: var(--ff-serif); font-size: clamp(1.8rem, 3.5vw, 3rem); color: var(--ivory); line-height: 1.2; font-weight: 400; letter-spacing: -.02em; }
+.statement-text em { color: var(--gold); }
+
+/* ── SCROLL STRIP SECTION ─────────────────────────── */
+.strip-showcase { background: var(--espresso); padding: 80px 0; overflow: hidden; }
+.strip-video-cell {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding-bottom: 20px;
+  position: relative;
+}
+.strip-video-cell video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.strip-bg { position: absolute; inset: 0; }
+.strip-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(38,28,19,.85) 0%, transparent 55%); z-index: 1; }
+.strip-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-60%);
+  z-index: 2;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(184,147,90,.85);
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s, transform .2s;
+}
+.strip-phone:hover .strip-play { background: var(--gold); transform: translate(-50%,-60%) scale(1.12); }
+.strip-info { position: relative; z-index: 2; text-align: center; }
+.strip-info span  { display: block; font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(248,247,242,.55); margin-bottom: 3px; }
+.strip-info strong{ display: block; font-size: .72rem; font-weight: 700; color: var(--ivory); }
+.sb1{background:linear-gradient(145deg,#2d1f1a,#4a2e25)}
+.sb2{background:linear-gradient(145deg,#1e2a1e,#2d3d2d)}
+.sb3{background:linear-gradient(145deg,#2a1f2a,#3d2d3d)}
+.sb4{background:linear-gradient(145deg,#251a10,#382510)}
+.sb5{background:linear-gradient(145deg,#1a2030,#2a3545)}
+.sb6{background:linear-gradient(145deg,#2a2010,#3d3015)}
+.sb7{background:linear-gradient(145deg,#101a2a,#1a2535)}
+
+/* ── FLOATING PHONES ──────────────────────────────── */
+.float-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 0 60px;
+  position: relative;
+}
+.float-row-shadow {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 50px;
+  background: radial-gradient(ellipse, rgba(0,0,0,.3) 0%, transparent 70%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+.fp-center { width: 195px !important; }
+.fp-bg1{background:linear-gradient(160deg,#2d1f1a,#4a2e20)}
+.fp-bg2{background:linear-gradient(160deg,#1e1428,#2d2040)}
+.fp-bg3{background:linear-gradient(160deg,#182018,#243024)}
+.fp-bg4{background:linear-gradient(160deg,#28180a,#3d2510)}
+.fp-bg5{background:linear-gradient(160deg,#101828,#182535)}
+.fp-inner {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding-bottom: 22px; position: relative;
+}
+.fp-inner video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fp-grad { position: absolute; inset: 0; background: linear-gradient(to top, rgba(38,28,19,.85) 0%, transparent 55%); z-index: 1; }
+.fp-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-60%);
+  z-index: 2;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(184,147,90,.85);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .2s, background .2s;
+}
+.float-phone:hover .fp-play { transform: translate(-50%,-60%) scale(1.1); background: var(--gold); }
+.fp-label { position: relative; z-index: 2; text-align: center; }
+.fp-label span  { display: block; font-size: .55rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+.fp-label strong{ display: block; font-size: .7rem; font-weight: 700; color: var(--ivory); }
+
+/* ── PROCESS ──────────────────────────────────────── */
+.process-row { display: grid; grid-template-columns: repeat(6,1fr); gap: 0; }
+.pr-step {
+  padding: 52px 28px;
+  border-right: 1px solid rgba(248,247,242,.07);
+  position: relative;
+}
+.pr-step:last-child { border-right: none; }
+.pr-num { font-family: var(--ff-serif); font-size: 2.5rem; font-weight: 400; color: rgba(248,247,242,.1); line-height: 1; margin-bottom: 18px; display: block; }
+.pr-title { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ivory); margin-bottom: 12px; }
+.pr-desc  { font-size: .78rem; color: rgba(248,247,242,.4); line-height: 1.75; }
+.pr-dot {
+  position: absolute;
+  top: 44px; right: -1px;
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  transform: translateX(50%);
+  opacity: .7;
+}
+.pr-step:last-child .pr-dot { display: none; }
+
+/* ── TESTIMONIALS ─────────────────────────────────── */
+.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--stone); }
+.testi-card {
+  background: var(--ivory);
+  padding: 60px 44px;
+  position: relative;
+}
+.testi-card::before {
+  content: '\201C';
+  font-family: var(--ff-serif);
+  font-size: 5rem;
+  line-height: .8;
+  color: var(--stone);
+  position: absolute;
+  top: 20px; left: 28px;
+  font-weight: 400;
+}
+.testi-text { font-family: var(--ff-serif); font-size: .95rem; font-style: italic; line-height: 1.85; margin-bottom: 32px; position: relative; }
+.testi-name { font-size: .76rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.testi-role { font-size: .74rem; color: var(--taupe); margin-top: 4px; }
+.testi-ph { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 12px; min-height: 200px; }
+
+/* ── FINAL CTA ────────────────────────────────────── */
+.final-cta {
+  background: var(--espresso);
+  padding: 160px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta-glow {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 55% at 50% 100%, rgba(184,147,90,.06), transparent);
+  pointer-events: none;
+}
+.final-cta-rule {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(184,147,90,.25) 30%, rgba(184,147,90,.25) 70%, transparent);
+}
+
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { height: 55vh; }
+  .hero-content { padding: 80px 40px 60px 0; }
+  .about-strip { grid-template-columns: 1fr; }
+  .about-strip-img { height: 400px; }
+  .about-strip-content { padding: 72px 48px; }
+  .services-editorial { grid-template-columns: 1fr; }
+  .svc-editorial-item { border-right: none; }
+  .svc-editorial-item:nth-child(5) { border-bottom: 1px solid var(--stone); }
+  .work-preview-grid { grid-template-columns: 1fr 1fr; }
+  .process-row { grid-template-columns: repeat(3,1fr); }
+  .testi-grid { grid-template-columns: 1fr; }
+  .statement-inner { grid-template-columns: 1fr; gap: 40px; }
+  .statement-label-col { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(248,247,242,.07); padding-bottom: 40px; }
+  .float-row .float-phone:first-child,
+  .float-row .float-phone:last-child { display: none; }
+  .hero-stat-cards { display: none; }
+  .svc-cta-cell { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 768px) {
+  .hero-content { padding: 60px 0 60px; }
+  .work-preview-grid { grid-template-columns: 1fr; }
+  .process-row { grid-template-columns: repeat(2,1fr); }
+  .float-row .float-phone { width: 140px !important; }
+  .fp-center { width: 160px !important; }
+  .about-strip-content { padding: 56px 28px; }
+  .about-strip-content::before { font-size: 10rem; }
+  .svc-editorial-item { padding: 52px 32px; }
+  .svc-cta-cell { padding: 52px 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ─────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Cinfluence</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary">Book a Call</a>
+      <button class="hamburger" onclick="openMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory" onclick="closeMenu()" style="margin-top:8px">Book a Call</a>
+</div>
+
+<!-- ── HERO ─────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-grid-lines"></div>
+
+  <!-- Left: copy -->
+  <div class="container" style="display:contents">
+    <div class="hero-content fade-up" style="padding-left:48px">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="label">Specialist Content Studio</span>
+      </div>
+      <h1 class="heading-xl hero-h1">Content built<br>for brands that<br><em>earn trust.</em></h1>
+      <p class="hero-sub">I help beauty, wellness, med spa, and aesthetic brands build lasting authority through strategic content systems — not noise.</p>
+      <div class="btn-group">
+        <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory">Book a Discovery Call</a>
+        <a href="work.html" class="btn btn-outline-light">View Work</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: hero image / visual -->
+  <div class="hero-right">
+    <div class="hero-image-wrap">
+      <!-- ATTACH: hero-photo.jpg — warm founder portrait or editorial beauty/wellness lifestyle shot — min 1200×1800px -->
+      <div class="img-ph" style="background:rgba(38,28,19,.3);border:none;color:rgba(248,247,242,.25)">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <div class="ph-title" style="color:rgba(248,247,242,.3)">Hero Image</div>
+        <div class="ph-sub" style="color:rgba(248,247,242,.2)">Attach: hero-photo.jpg<br>Warm editorial portrait or beauty/wellness lifestyle<br>Min 1200×1800px</div>
+      </div>
+    </div>
+    <!-- Stat cards floating over image -->
+    <div class="hero-stat-cards">
+      <div class="hero-stat">
+        <div class="hero-stat-num"><em>3+</em></div>
+        <div class="hero-stat-label">Industries Served</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num"><em>100%</em></div>
+        <div class="hero-stat-label">Founder-Led</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE BAR ──────────────────────────────────── -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item">Social Media Management<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Short-Form Video<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Content Strategy<span class="marquee-dot"></span></div>
+    <div class="marquee-item">AI-Powered Production<span class="marquee-dot"></span></div>
+    <div class="marquee-item">UGC &amp; Influencer<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Brand Identity<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Website Design<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Beauty &amp; Wellness<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Medical Aesthetics<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Influence With Intention<span class="marquee-dot"></span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item">Social Media Management<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Short-Form Video<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Content Strategy<span class="marquee-dot"></span></div>
+    <div class="marquee-item">AI-Powered Production<span class="marquee-dot"></span></div>
+    <div class="marquee-item">UGC &amp; Influencer<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Brand Identity<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Website Design<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Beauty &amp; Wellness<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Medical Aesthetics<span class="marquee-dot"></span></div>
+    <div class="marquee-item">Influence With Intention<span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<!-- ── TRUST BAR ──────────────────────────────────── -->
+<div class="trust-bar fade-up">
+  <div class="container">
+    <div class="trust-inner">
+      <span class="label" style="color:var(--taupe)">Brands I've Worked With</span>
+      <div class="trust-logos">
+        <img src="assets/logos/iluxe-logo.svg" alt="iLuxe Aesthetic Center" class="trust-logo" width="100" height="32">
+        <img src="assets/logos/hairsoluton-logo.svg" alt="Hair Solution Nails &amp; Spa" class="trust-logo" width="100" height="32">
+        <img src="assets/logos/stylestate-logo.svg" alt="Style State" class="trust-logo" width="100" height="32">
+        <img src="assets/logos/winnieandco-logo.svg" alt="Winnie &amp; Co." class="trust-logo" width="100" height="32">
+        <img src="assets/logos/epictales-logo.svg" alt="Epic Tales" class="trust-logo" width="100" height="32">
+        <img src="assets/logos/rabble-logo.svg" alt="Rabble Clothing" class="trust-logo" width="100" height="32">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT STRIP ────────────────────────────────── -->
+<div class="about-strip fade-up">
+  <div class="about-strip-img">
+    <!-- ATTACH: about-strip.jpg — candid founder working, editorial tone — min 900×900px -->
+    <div class="img-ph">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <div class="ph-title">Founder Photo</div>
+      <div class="ph-sub">Attach: about-strip.jpg<br>Candid editorial shot<br>Min 900×900px</div>
+    </div>
+  </div>
+  <div class="about-strip-content">
+    <span class="label">The Studio</span>
+    <p>"When you work with Cinfluence, you work with <strong>me</strong> — a strategist who understands your world, speaks your audience's language, and treats your brand with the care it's earned."</p>
+    <div class="about-strip-byline">
+      <div class="about-strip-byline-line"></div>
+      <span>Hyacinth "Cinth" Blabagno — Founder</span>
+    </div>
+    <div>
+      <a href="about.html" class="btn btn-outline-light" style="margin-top:8px">Meet the Founder</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── SERVICES ───────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">What I Do</span>
+      <h2 class="heading-lg">Specialist services for<br><em>beauty &amp; wellness brands</em></h2>
+    </div>
+  </div>
+  <div class="services-editorial">
+    <div class="svc-editorial-item fade-up">
+      <span class="svc-num">01</span>
+      <h3 class="svc-editorial-title">Social Media<br>Management</h3>
+      <p class="svc-editorial-desc">Strategy, content, scheduling, and community management — a consistent presence that reflects your brand's actual quality.</p>
+      <a href="services.html" class="svc-editorial-link">Learn More <svg class="svc-editorial-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+    <div class="svc-editorial-item fade-up">
+      <span class="svc-num">02</span>
+      <h3 class="svc-editorial-title">Short-Form<br>Video</h3>
+      <p class="svc-editorial-desc">Platform-native Reels and TikToks scripted, directed, and edited for your audience — not repurposed from long-form.</p>
+      <a href="services.html" class="svc-editorial-link">Learn More <svg class="svc-editorial-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+    <div class="svc-editorial-item fade-up">
+      <span class="svc-num">03</span>
+      <h3 class="svc-editorial-title">Content<br>Strategy</h3>
+      <p class="svc-editorial-desc">A strategic roadmap — content pillars, editorial direction, and channel plan aligned to your business goals.</p>
+      <a href="services.html" class="svc-editorial-link">Learn More <svg class="svc-editorial-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+    <div class="svc-editorial-item fade-up">
+      <span class="svc-num">04</span>
+      <h3 class="svc-editorial-title">AI-Powered<br>Production</h3>
+      <p class="svc-editorial-desc">Scalable, on-brand content at speed using modern AI workflows — without losing the voice your audience expects.</p>
+      <a href="services.html" class="svc-editorial-link">Learn More <svg class="svc-editorial-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+    <div class="svc-editorial-item fade-up">
+      <span class="svc-num">05</span>
+      <h3 class="svc-editorial-title">UGC &amp;<br>Influencer</h3>
+      <p class="svc-editorial-desc">Creator sourcing, outreach, and campaign management that connects your brand with voices your audience trusts.</p>
+      <a href="services.html" class="svc-editorial-link">Learn More <svg class="svc-editorial-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+    <div class="svc-editorial-item fade-up">
+      <span class="svc-num">06</span>
+      <h3 class="svc-editorial-title">Brand Identity<br>&amp; Website</h3>
+      <p class="svc-editorial-desc">Visual identity, positioning, and digital presence — the foundations that hold together across every touchpoint.</p>
+      <a href="services.html" class="svc-editorial-link">Learn More <svg class="svc-editorial-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
+    </div>
+    <!-- CTA cell spanning full width -->
+    <div class="svc-cta-cell fade-up">
+      <p><strong>Influence with Intention</strong>Strategy first. Then the story. Then the system.</p>
+      <a href="services.html" class="btn btn-ivory" style="flex-shrink:0">All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WORK PREVIEW ───────────────────────────────── -->
+<section class="section section--stone">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">Selected Work</span>
+      <h2 class="heading-lg">Brands I've <em>worked with</em></h2>
+    </div>
+    <div class="work-preview-grid">
+      <div class="wp-card fade-up">
+        <div class="wp-card-img">
+          <img src="assets/work/iluxe-graphicdesigns.jpg" alt="iLuxe Aesthetic Center — content and social media work" loading="lazy" width="800" height="1000">
+        </div>
+        <div class="wp-card-info">
+          <span class="label">Medical Aesthetics</span>
+          <h3>iLuxe Aesthetic Center</h3>
+          <span>Social media management, content creation, and brand storytelling for a premium aesthetic clinic.</span>
+        </div>
+      </div>
+      <div class="wp-card fade-up">
+        <div class="wp-card-img">
+          <img src="assets/work/hairsolution-graphicdesigns.jpg" alt="Hair Solution Nails &amp; Spa — beauty and wellness content" loading="lazy" width="800" height="1000">
+        </div>
+        <div class="wp-card-info">
+          <span class="label">Beauty &amp; Wellness</span>
+          <h3>Hair Solution Nails &amp; Spa</h3>
+          <span>Social media management and short-form video production for a beauty and wellness studio.</span>
+        </div>
+      </div>
+      <div class="wp-card fade-up">
+        <div class="wp-card-img">
+          <img src="assets/work/stylestate-graphicdesigns.jpg" alt="Style State — fashion social media management and Reels" loading="lazy" width="800" height="1000">
+        </div>
+        <div class="wp-card-info">
+          <span class="label">Fashion &amp; Apparel</span>
+          <h3>Style State</h3>
+          <span>Full social media management, Reels production, and content strategy for an independent fashion brand.</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:64px" class="fade-up">
+      <a href="work.html" class="btn btn-primary">View All Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATEMENT BAND ─────────────────────────────── -->
+<div class="statement-band fade-up">
+  <div class="statement-band-rule"></div>
+  <div class="statement-band-rule-bottom"></div>
+  <div class="container">
+    <div class="statement-inner">
+      <div class="statement-label-col">
+        <span class="label">The Philosophy</span>
+        <p>Content built on strategy compounds. Content built on noise disappears.</p>
+      </div>
+      <p class="statement-text">Authority is built, not bought.<br><em>Content is the system that compounds it.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- ── INFINITE SCROLL STRIP ─────────────────────── -->
+<section class="strip-showcase">
+  <div class="container">
+    <div class="section-header fade-up" style="margin-bottom:64px">
+      <span class="label" style="color:var(--gold)">Content Portfolio</span>
+      <h2 class="heading-lg" style="color:var(--ivory)">Work that speaks<br>for <em style="color:var(--gold)">itself.</em></h2>
+    </div>
+  </div>
+  <div class="scroll-strip-wrap" aria-label="Content portfolio strip" role="region">
+    <div class="scroll-track">
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Medical Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty &amp; Wellness</span><strong>Hair Solution</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>E-Commerce</span><strong>Winnie &amp; Co.</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Lifestyle</span><strong>Epic Tales</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble Clothing</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Medical Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty &amp; Wellness</span><strong>Hair Solution</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>E-Commerce</span><strong>Winnie &amp; Co.</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Lifestyle</span><strong>Epic Tales</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble Clothing</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FLOATING PHONES ─────────────────────────────── -->
+<section class="section--dark" style="padding:100px 0;overflow:hidden">
+  <div class="container">
+    <div class="section-header fade-up" style="margin-bottom:64px">
+      <span class="label" style="color:var(--gold)">Short-Form Content</span>
+      <h2 class="heading-lg" style="color:var(--ivory)">Reels built for<br>the brands that <em style="color:var(--gold)">matter.</em></h2>
+      <p class="body-sm" style="color:rgba(248,247,242,.45);margin-top:24px">Every Reel scripted, directed, and edited to reflect your brand at its best.</p>
+    </div>
+  </div>
+  <div class="float-row">
+    <div class="float-row-shadow"></div>
+    <div class="phone float-phone f1" style="width:165px">
+      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
+        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg1"></div><div class="fp-grad"></div><div class="fp-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>Medical Aesthetics</span><strong>iLuxe</strong></div></div></div>
+      </div>
+    </div>
+    <div class="phone float-phone f2" style="width:165px">
+      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
+        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg2"></div><div class="fp-grad"></div><div class="fp-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>Beauty &amp; Wellness</span><strong>Hair Solution</strong></div></div></div>
+      </div>
+    </div>
+    <div class="phone float-phone f3 fp-center" style="width:195px">
+      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
+        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg3"></div><div class="fp-grad"></div><div class="fp-play" style="width:48px;height:48px"><svg width="13" height="15" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>Featured</span><strong>Style State</strong></div></div></div>
+      </div>
+    </div>
+    <div class="phone float-phone f4" style="width:165px">
+      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
+        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg4"></div><div class="fp-grad"></div><div class="fp-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>E-Commerce</span><strong>Winnie &amp; Co.</strong></div></div></div>
+      </div>
+    </div>
+    <div class="phone float-phone f5" style="width:165px">
+      <div class="phone-frame"><div class="phone-notch"></div><div class="phone-btn"></div>
+        <div class="phone-screen"><div class="fp-inner"><div class="strip-bg fp-bg5"></div><div class="fp-grad"></div><div class="fp-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="fp-label"><span>Apparel</span><strong>Rabble</strong></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:60px">
+    <a href="work.html" class="btn btn-outline-light">See More Work</a>
+  </div>
+</section>
+
+<!-- ── PROCESS ─────────────────────────────────────── -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header fade-up" style="margin-bottom:72px">
+      <span class="label" style="color:var(--gold)">How I Work</span>
+      <h2 class="heading-lg" style="color:var(--ivory)">A process built<br>for <em style="color:var(--gold)">clarity.</em></h2>
+    </div>
+    <div class="process-row">
+      <div class="pr-step fade-up"><span class="pr-num">01</span><div class="pr-title">Discovery</div><p class="pr-desc">Deep-dive into your brand, goals, audience, and competitive landscape.</p><div class="pr-dot"></div></div>
+      <div class="pr-step fade-up"><span class="pr-num">02</span><div class="pr-title">Strategy</div><p class="pr-desc">A custom content strategy — pillars, editorial direction, and channel plan aligned to your business goals.</p><div class="pr-dot"></div></div>
+      <div class="pr-step fade-up"><span class="pr-num">03</span><div class="pr-title">Creation</div><p class="pr-desc">On-brand content produced to a considered standard — scripted, designed, edited, and refined.</p><div class="pr-dot"></div></div>
+      <div class="pr-step fade-up"><span class="pr-num">04</span><div class="pr-title">Approval</div><p class="pr-desc">You review everything before it goes live. No surprises, no assumptions.</p><div class="pr-dot"></div></div>
+      <div class="pr-step fade-up"><span class="pr-num">05</span><div class="pr-title">Publish</div><p class="pr-desc">Scheduled publishing at the right time, on the right platform, for your specific audience.</p><div class="pr-dot"></div></div>
+      <div class="pr-step fade-up"><span class="pr-num">06</span><div class="pr-title">Refine</div><p class="pr-desc">Monthly review of what's working, what isn't, and where to focus next.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label">Client Feedback</span>
+      <h2 class="heading-lg">What clients <em>say</em></h2>
+    </div>
+    <div class="testi-grid fade-up">
+      <div class="testi-card">
+        <div class="testi-ph">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <p style="font-size:.78rem;color:var(--taupe)">Client testimonial placeholder<br><em>Replace with a verified review</em></p>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-ph">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <p style="font-size:.78rem;color:var(--taupe)">Client testimonial placeholder<br><em>Include name, brand, and context</em></p>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-ph">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <p style="font-size:.78rem;color:var(--taupe)">Client testimonial placeholder<br><em>Video testimonials also supported</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ─────────────────────────────────────────── -->
+<section class="section section--stone">
+  <div class="container">
+    <div class="section-header center fade-up">
+      <span class="label">Questions</span>
+      <h2 class="heading-lg">Frequently Asked</h2>
+    </div>
+    <div class="faq-list fade-up">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What types of brands do you work with?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">I specialise in beauty, wellness, med spas, skincare brands, aesthetic clinics, and cosmetic practices. I also work with fashion and lifestyle brands as a secondary niche. If your brand prioritises quality, visual storytelling, and building trust with your audience, we're probably a good fit.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you create the content or just manage it?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Both. I handle the strategy, scripting, content design, video editing, scheduling, and community management — so you can focus on running your business. Every piece of content goes through your approval before it goes live.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you offer custom packages?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">Yes. Book a discovery call and I'll build a custom proposal based on your brand's specific goals, channels, and budget. There's no one-size-fits-all approach here.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the minimum engagement?<svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a">I ask for a 3-month minimum on all retainer packages. Building authority through content is a compounding process — 3 months is the realistic starting point for meaningful, directional work. After that, we continue month-to-month.</div></div>
+    </div>
+    <div style="text-align:center;margin-top:56px" class="fade-up">
+      <a href="contact.html" class="btn btn-primary">Have More Questions?</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ──────────────────────────────────── -->
+<section class="final-cta">
+  <div class="final-cta-glow"></div>
+  <div class="final-cta-rule"></div>
+  <div class="container" style="position:relative">
+    <div class="fade-up">
+      <span class="label" style="color:var(--gold);display:block;margin-bottom:28px"><span class="gold-rule"></span>Let's Work Together</span>
+      <h2 class="heading-lg" style="color:var(--ivory);max-width:580px;margin:0 auto 20px">Ready to build<br>a brand they <em>remember?</em></h2>
+      <p style="color:rgba(248,247,242,.45);margin-bottom:52px;max-width:420px;margin-left:auto;margin-right:auto;font-size:.92rem;line-height:1.95">Discovery calls are free, 30 minutes, and obligation-free. Let's talk about your brand and where you want to take it.</p>
+      <div class="btn-group" style="justify-content:center">
+        <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory">Book a Discovery Call</a>
+        <a href="mailto:hello@cinfluencedigital.com" class="btn btn-outline-light">hello@cinfluencedigital.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo">Cinfluence</span>
+        <p class="footer-tagline">A founder-led specialist content studio helping beauty, wellness, med spa, and aesthetic brands build trust, authority, and visibility through strategic content systems.</p>
+      </div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html">Social Media Management</a></li><li><a href="services.html">Short-Form Video</a></li><li><a href="services.html">Content Strategy</a></li><li><a href="services.html">AI Content Production</a></li><li><a href="services.html">UGC &amp; Influencer</a></li><li><a href="services.html">Brand Identity</a></li><li><a href="services.html">Website Design</a></li></ul></div>
+      <div class="footer-col"><h5>Studio</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Connect</h5><ul class="footer-links"><li><a href="https://instagram.com/cinfluence.digital" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://tiktok.com/@cinfluence.digital" target="_blank" rel="noopener">TikTok</a></li><li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Cinfluence. All rights reserved.</span>
+      <div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

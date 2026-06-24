@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — CINFLUENCE</title>
+<meta name="description" content="Book a free discovery call or send us a message. Let's build a strategy for your brand."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+/* Form */
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--white);
+  border: 1px solid var(--stone);
+  padding: 14px 18px;
+  font-family: var(--ff-sans);
+  font-size: .9rem;
+  color: var(--espresso);
+  outline: none;
+  transition: border-color .2s;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(83,65,42,.4); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea { resize: vertical; min-height: 140px; }
+.form-group select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2353412A' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+.form-note { font-size: .75rem; color: var(--taupe); margin-top: -4px; }
+.form-note a { color: var(--espresso); border-bottom: 1px solid var(--gold); }
+.form-success { display: none; text-align: center; padding: 40px; background: var(--stone); }
+.form-success h3 { font-family: var(--ff-serif); font-size: 1.6rem; margin-bottom: 12px; }
+.form-success p  { font-size: .9rem; color: var(--taupe); }
+
+/* Contact info */
+.contact-info-col h2 { font-family: var(--ff-serif); font-size: 2rem; font-weight: 400; margin-bottom: 20px; }
+.contact-info-col > p { color: var(--taupe); line-height: 1.85; font-size: .95rem; margin-bottom: 48px; }
+.contact-details { display: flex; flex-direction: column; gap: 28px; }
+.contact-detail-item { display: flex; gap: 20px; align-items: flex-start; }
+.contact-detail-icon {
+  width: 44px; height: 44px;
+  background: var(--stone);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.contact-detail-title { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--taupe); margin-bottom: 6px; display: block; }
+.contact-detail-val { font-size: .92rem; color: var(--espresso); font-weight: 500; }
+.contact-detail-val a { color: var(--espresso); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.contact-detail-val a:hover { border-color: var(--gold); }
+.social-links { display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap; }
+.social-link {
+  font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--stone);
+  color: var(--taupe);
+  transition: all .2s;
+}
+.social-link:hover { background: var(--espresso); color: var(--ivory); border-color: var(--espresso); }
+
+/* Calendly block */
+.calendly-block {
+  background: var(--espresso);
+  padding: 48px;
+  margin-top: 48px;
+  position: relative;
+}
+.calendly-block .label { color: var(--gold); display: block; margin-bottom: 12px; }
+.calendly-block h3 { font-family: var(--ff-serif); font-size: 1.5rem; font-weight: 400; color: var(--ivory); margin-bottom: 12px; }
+.calendly-block p  { font-size: .85rem; color: rgba(248,247,242,.55); margin-bottom: 28px; line-height: 1.75; }
+
+/* What to expect */
+.expect-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--stone); margin-top: 80px; }
+.expect-item {
+  background: var(--stone);
+  padding: 44px 36px;
+  background: var(--ivory);
+}
+.expect-num { font-family: var(--ff-serif); font-size: 2.5rem; font-weight: 400; color: var(--stone); line-height: 1; margin-bottom: 20px; }
+.expect-item h4 { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px; }
+.expect-item p  { font-size: .85rem; color: var(--taupe); line-height: 1.75; }
+
+@media (max-width: 1024px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 60px; }
+  .expect-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Cinfluence</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Book A Call</a>
+      <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" class="btn btn-primary" onclick="closeMenu()">Book A Call</a>
+</div>
+
+<div class="nav-offset">
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <span class="label">Get In Touch</span>
+      <h1 class="heading-xl">Let's Build<br>Something <em>Together.</em></h1>
+      <p>Whether you're ready to get started or just exploring your options — we're here. Discovery calls are free and obligation-free.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<section class="section">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- Form -->
+      <div class="fade-up">
+        <div class="section-header" style="margin-bottom:40px">
+          <span class="label">Send a Message</span>
+          <h2 class="heading-md">Tell us about<br>your brand</h2>
+        </div>
+
+        <!-- Success message (shown after submit) -->
+        <div class="form-success" id="formSuccess">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" style="margin:0 auto 16px"><polyline points="20 6 9 17 4 12"/></svg>
+          <h3>Message Received</h3>
+          <p>Thanks for reaching out. We'll be in touch within 24–48 business hours.</p>
+        </div>
+
+        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="first_name" placeholder="Jane" required/>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="last_name" placeholder="Smith" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="jane@yourbrand.com" required/>
+          </div>
+          <div class="form-group">
+            <label>Brand / Company Name</label>
+            <input type="text" name="brand" placeholder="Your Brand Name" required/>
+          </div>
+          <div class="form-group">
+            <label>Website (optional)</label>
+            <input type="url" name="website" placeholder="https://yourbrand.com"/>
+          </div>
+          <div class="form-group">
+            <label>Monthly Budget Range</label>
+            <select name="budget" required>
+              <option value="" disabled selected>Select your budget range</option>
+              <option>Under $800/mo</option>
+              <option>$800 – $1,500/mo</option>
+              <option>$1,500 – $2,500/mo</option>
+              <option>$2,500+/mo</option>
+              <option>Strategy Intensive only ($300)</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Service(s) You're Interested In</label>
+            <select name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Social Media Management</option>
+              <option>Short-Form Content / Reels</option>
+              <option>AI Content Production</option>
+              <option>Influencer & UGC Management</option>
+              <option>Paid Advertising</option>
+              <option>Email Marketing</option>
+              <option>Website Design & Development</option>
+              <option>Full-Service Package</option>
+              <option>Strategy Intensive — $300</option>
+              <option>Custom Proposal</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell Us About Your Brand & Goals</label>
+            <textarea name="message" placeholder="What are you working on? What results are you looking for? The more detail, the better." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-start">Send Message</button>
+          <p class="form-note">Prefer to book directly? <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank">Schedule a discovery call →</a></p>
+        </form>
+      </div>
+
+      <!-- Info Column -->
+      <div class="fade-up">
+        <div class="contact-info-col">
+          <h2>We'd love to<br>hear from you.</h2>
+          <p>Whether you're ready to kick off or still figuring out what you need — send us a message and we'll figure it out together.</p>
+
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <span class="contact-detail-title">Email</span>
+                <div class="contact-detail-val"><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></div>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <span class="contact-detail-title">Response Time</span>
+                <div class="contact-detail-val">Within 24–48 business hours</div>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div>
+                <span class="contact-detail-title">Discovery Calls</span>
+                <div class="contact-detail-val">Free · 30 minutes · Via Zoom</div>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>
+              </div>
+              <div>
+                <span class="contact-detail-title">Follow Along</span>
+                <div class="social-links">
+                  <a href="#" class="social-link">Instagram</a>
+                  <a href="#" class="social-link">TikTok</a>
+                  <a href="#" class="social-link">LinkedIn</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calendly CTA block -->
+          <div class="calendly-block">
+            <span class="label">Skip the back-and-forth</span>
+            <h3>Book a Discovery Call</h3>
+            <p>30 minutes. Free. We'll talk through your brand, your goals, and whether we're the right fit. No pressure, no pitch.</p>
+            <!-- ATTACH: Replace href with your actual Calendly link -->
+            <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-gold">Book a Call →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- What to expect -->
+    <div style="margin-top:100px" class="fade-up">
+      <div class="section-header" style="margin-bottom:0">
+        <span class="label">The Process</span>
+        <h2 class="heading-lg">What happens<br><em>next</em></h2>
+      </div>
+      <div class="expect-grid" style="margin-top:52px">
+        <div class="expect-item">
+          <div class="expect-num">01</div>
+          <h4>You Send a Message</h4>
+          <p>Fill out the form above or book a call directly. The more detail you include, the better prepared we'll be for our conversation.</p>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">02</div>
+          <h4>We Schedule a Discovery Call</h4>
+          <p>A free 30-minute Zoom call where we learn about your brand, your goals, and what's not working. We listen first.</p>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">03</div>
+          <h4>We Send a Custom Proposal</h4>
+          <p>Within 3–5 business days, you'll receive a tailored proposal outlining services, deliverables, timeline, and investment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Band -->
+<div class="statement-band" style="padding:100px 0">
+  <div class="container fade-up">
+    <h2 class="heading-lg" style="color:var(--ivory);margin-bottom:20px">Spots are <em>limited.</em><br>Founding rates won't last.</h2>
+    <p style="color:rgba(248,247,242,.5);margin-bottom:40px">We keep our client list intentionally small. If you've been thinking about it — now is the time.</p>
+    <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory">Book a Discovery Call</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><span class="footer-logo">Cinfluence</span><p class="footer-tagline">A premium social media management and content production studio.</p></div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html">Social Media Management</a></li><li><a href="services.html">Short-Form Content</a></li><li><a href="services.html">AI Content Production</a></li><li><a href="services.html">Influencer & UGC</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Connect</h5><ul class="footer-links"><li><a href="https://instagram.com/cinfluencedigital" target="_blank">Instagram</a></li><li><a href="https://tiktok.com/@cinfluencedigital" target="_blank">TikTok</a></li><li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cinfluence. All rights reserved.</span><div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  // For Netlify Forms: add data-netlify="true" to the form tag and this will work automatically on deploy
+  // For now, shows success state
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  window.scrollTo({ top: document.getElementById('formSuccess').offsetTop - 100, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

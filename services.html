@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — CINFLUENCE</title>
+<meta name="description" content="Full-service social media management, short-form content, AI production, influencer management, paid advertising, email marketing, and website design."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.services-full { display: flex; flex-direction: column; gap: 0; }
+.svc-full-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  padding: 72px 0;
+  border-bottom: 1px solid var(--stone);
+}
+.svc-full-row:nth-child(even) .svc-full-content { order: 2; }
+.svc-full-row:nth-child(even) .svc-full-img     { order: 1; }
+.svc-full-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.svc-full-content .label { color: var(--gold); display: block; margin-bottom: 16px; }
+.svc-full-content h2 { font-family: var(--ff-serif); font-size: clamp(1.6rem,2.5vw,2.2rem); font-weight: 400; margin-bottom: 20px; line-height: 1.2; letter-spacing: -.02em; }
+.svc-full-content p  { color: var(--taupe); line-height: 1.85; font-size: .95rem; margin-bottom: 28px; }
+.svc-full-img {
+  width: 100%;
+  background: var(--stone);
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  min-height: 360px;
+}
+.svc-full-img img { width: 100%; height: 100%; object-fit: cover; }
+.svc-includes { margin: 24px 0; display: flex; flex-direction: column; gap: 10px; }
+.svc-includes li {
+  font-size: .85rem;
+  color: var(--espresso);
+  padding-left: 18px;
+  position: relative;
+  list-style: none;
+}
+.svc-includes li::before { content: ''; position: absolute; left: 0; top: 9px; width: 8px; height: 1px; background: var(--gold); }
+
+.addons-section { background: var(--espresso); padding: 100px 0; }
+.addons-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(248,247,242,.08); margin-top: 52px; }
+.addon-card {
+  background: var(--espresso);
+  padding: 36px 28px;
+  border: 1px solid rgba(248,247,242,.07);
+  transition: background .3s;
+}
+.addon-card:hover { background: rgba(248,247,242,.04); }
+.addon-card h4 { font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ivory); margin-bottom: 10px; }
+.addon-card p  { font-size: .8rem; color: rgba(248,247,242,.45); line-height: 1.7; }
+.addon-price { font-family: var(--ff-serif); font-size: 1.4rem; color: var(--gold); margin-top: 16px; display: block; }
+
+@media (max-width: 1024px) {
+  .svc-full-row { grid-template-columns: 1fr; min-height: auto; }
+  .svc-full-row:nth-child(even) .svc-full-content,
+  .svc-full-row:nth-child(even) .svc-full-img { order: unset; }
+  .svc-full-img { height: 320px; min-height: 0; margin: 0 0 32px; }
+  .svc-full-content { padding: 52px 0 !important; }
+  .svc-full-row-wrap { padding: 0 24px; }
+  .addons-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
+  .svc-full-content { padding: 36px 0 !important; }
+  .addons-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Cinfluence</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Book A Call</a>
+      <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()">✕</button>
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="work.html" onclick="closeMenu()">Work</a>
+  <a href="pricing.html" onclick="closeMenu()">Pricing</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="contact.html" onclick="closeMenu()">Contact</a>
+  <a href="contact.html" class="btn btn-primary" onclick="closeMenu()">Book A Call</a>
+</div>
+
+<!-- Page Hero -->
+<div class="nav-offset">
+  <div class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <span class="label">What We Offer</span>
+      <h1 class="heading-xl">Our <em>Services</em></h1>
+      <p>Every service is built around one goal — growing your brand with content that performs, not just content that exists.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Services Full Rows -->
+<div class="services-full">
+
+  <!-- 1. Social Media Management -->
+  <div class="container"><div class="svc-full-row fade-up">
+    <div class="svc-full-content">
+      <span class="label">01</span>
+      <h2>Social Media<br>Management</h2>
+      <p>Full-service management across your social platforms — from content strategy to community engagement. We handle everything so you can focus on running your business.</p>
+      <ul class="svc-includes">
+        <li>Platform strategy (Instagram, TikTok, LinkedIn, Facebook)</li>
+        <li>Monthly content calendar planning</li>
+        <li>Caption writing and hashtag strategy</li>
+        <li>Scheduling and publishing</li>
+        <li>Community management and DM response</li>
+        <li>Monthly performance reporting</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary" style="align-self:flex-start">Get Started</a>
+    </div>
+    <div class="svc-full-img">
+      <!-- ATTACH: services/smm.jpg -->
+      <div class="img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><div class="ph-title">Social Media Management</div><div class="ph-sub">Attach: services/smm.jpg</div></div>
+    </div>
+  </div></div>
+
+  <!-- 2. Short-Form Content -->
+  <div class="container"><div class="svc-full-row fade-up">
+    <div class="svc-full-content">
+      <span class="label">02</span>
+      <h2>Short-Form<br>Content & Reels</h2>
+      <p>Reels, TikToks, and Stories produced from scratch — not repurposed from long-form. Platform-native content scripted, directed, and edited for your specific audience and the algorithm.</p>
+      <ul class="svc-includes">
+        <li>Script and creative concept development</li>
+        <li>Creative direction and shot planning</li>
+        <li>Video editing and post-production</li>
+        <li>Trending audio selection</li>
+        <li>Caption and on-screen text copy</li>
+        <li>Platform-native optimization per channel</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary" style="align-self:flex-start">Get Started</a>
+    </div>
+    <div class="svc-full-img">
+      <!-- ATTACH: services/reels.jpg -->
+      <div class="img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><div class="ph-title">Short-Form Content</div><div class="ph-sub">Attach: services/reels.jpg</div></div>
+    </div>
+  </div></div>
+
+  <!-- 3. AI Content Production -->
+  <div class="container"><div class="svc-full-row fade-up">
+    <div class="svc-full-content">
+      <span class="label">03</span>
+      <h2>AI Content<br>Production</h2>
+      <p>Scalable, on-brand content produced at speed using AI-powered workflows — without losing the brand voice or creative quality your audience expects. Volume without compromise.</p>
+      <ul class="svc-includes">
+        <li>AI-assisted copywriting in your brand voice</li>
+        <li>AI-generated graphic assets and visuals</li>
+        <li>Automated content repurposing workflows</li>
+        <li>Smart platform adaptation (not direct crossposting)</li>
+        <li>Bulk content calendar production</li>
+        <li>Human review and quality control on all output</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary" style="align-self:flex-start">Get Started</a>
+    </div>
+    <div class="svc-full-img">
+      <!-- ATTACH: services/ai-content.jpg -->
+      <div class="img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg><div class="ph-title">AI Content Production</div><div class="ph-sub">Attach: services/ai-content.jpg</div></div>
+    </div>
+  </div></div>
+
+  <!-- 4. Influencer & UGC -->
+  <div class="container"><div class="svc-full-row fade-up">
+    <div class="svc-full-content">
+      <span class="label">04</span>
+      <h2>Influencer &<br>UGC Management</h2>
+      <p>End-to-end influencer identification, outreach, and campaign management — plus UGC collection that builds authentic brand proof across every touchpoint.</p>
+      <ul class="svc-includes">
+        <li>Influencer identification and vetting</li>
+        <li>Outreach and negotiation</li>
+        <li>Brief creation and campaign management</li>
+        <li>UGC creator sourcing and coordination</li>
+        <li>Content approval workflows</li>
+        <li>Performance tracking and reporting</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary" style="align-self:flex-start">Get Started</a>
+    </div>
+    <div class="svc-full-img">
+      <!-- ATTACH: services/influencer.jpg -->
+      <div class="img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg><div class="ph-title">Influencer & UGC</div><div class="ph-sub">Attach: services/influencer.jpg</div></div>
+    </div>
+  </div></div>
+
+  <!-- 5. Paid Advertising -->
+  <div class="container"><div class="svc-full-row fade-up">
+    <div class="svc-full-content">
+      <span class="label">05</span>
+      <h2>Paid<br>Advertising</h2>
+      <p>Meta and Google ad campaigns built for conversion. From creative development to audience targeting, A/B testing, and ongoing optimization — managed by a results-first team.</p>
+      <ul class="svc-includes">
+        <li>Meta Ads (Facebook + Instagram)</li>
+        <li>Google Ads (Search + Display)</li>
+        <li>Ad creative design and copywriting</li>
+        <li>Audience research and targeting strategy</li>
+        <li>A/B testing and optimization</li>
+        <li>Monthly performance reporting with insights</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary" style="align-self:flex-start">Get Started</a>
+    </div>
+    <div class="svc-full-img">
+      <!-- ATTACH: services/paid-ads.jpg -->
+      <div class="img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><div class="ph-title">Paid Advertising</div><div class="ph-sub">Attach: services/paid-ads.jpg</div></div>
+    </div>
+  </div></div>
+
+  <!-- 6. Email Marketing -->
+  <div class="container"><div class="svc-full-row fade-up">
+    <div class="svc-full-content">
+      <span class="label">06</span>
+      <h2>Email<br>Marketing</h2>
+      <p>Strategy, automation flows, and campaign management that nurtures leads and drives repeat revenue from your existing audience — turning subscribers into loyal customers.</p>
+      <ul class="svc-includes">
+        <li>Email strategy and platform setup</li>
+        <li>Welcome and onboarding sequences</li>
+        <li>Promotional campaign design and copy</li>
+        <li>Abandoned cart and re-engagement flows</li>
+        <li>List segmentation and management</li>
+        <li>Analytics and performance reporting</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary" style="align-self:flex-start">Get Started</a>
+    </div>
+    <div class="svc-full-img">
+      <!-- ATTACH: services/email.jpg -->
+      <div class="img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><div class="ph-title">Email Marketing</div><div class="ph-sub">Attach: services/email.jpg</div></div>
+    </div>
+  </div></div>
+
+  <!-- 7. Website Design & Dev -->
+  <div class="container"><div class="svc-full-row fade-up">
+    <div class="svc-full-content">
+      <span class="label">07</span>
+      <h2>Website Design<br>& Development</h2>
+      <p>Brand-aligned websites that convert visitors. Editorial design meets high-performance UX — from Framer builds to fully custom responsive web experiences.</p>
+      <ul class="svc-includes">
+        <li>Brand-aligned UI/UX design</li>
+        <li>Framer or custom HTML/CSS development</li>
+        <li>Mobile-first responsive builds</li>
+        <li>SEO fundamentals and page speed optimization</li>
+        <li>Contact forms and lead capture integration</li>
+        <li>Netlify or custom hosting deployment</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary" style="align-self:flex-start">Get Started</a>
+    </div>
+    <div class="svc-full-img">
+      <!-- ATTACH: services/web.jpg -->
+      <div class="img-ph"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg><div class="ph-title">Website Design & Dev</div><div class="ph-sub">Attach: services/web.jpg</div></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Add-Ons -->
+<section class="addons-section">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="label" style="color:var(--gold)">Extras</span>
+      <h2 class="heading-lg" style="color:var(--ivory)">Add-On <em style="color:var(--gold)">Services</em></h2>
+      <p class="body-sm" style="color:rgba(248,247,242,.5);margin-top:16px">Bolt on exactly what you need to any retainer package.</p>
+    </div>
+    <div class="addons-grid fade-up">
+      <div class="addon-card"><h4>Additional Reels</h4><p>Extra short-form video production beyond your package allocation.</p></div>
+      <div class="addon-card"><h4>Content Day</h4><p>On-location or studio shoot for branded photo and video assets.</p></div>
+      <div class="addon-card"><h4>UGC Campaign</h4><p>Standalone UGC creator sourcing, briefing, and delivery.</p></div>
+      <div class="addon-card"><h4>Paid Ad Creative</h4><p>Static and video ad creative designed for Meta or Google.</p></div>
+      <div class="addon-card"><h4>Email Setup</h4><p>Platform setup, welcome sequence, and first campaign.</p></div>
+      <div class="addon-card"><h4>Analytics Audit</h4><p>Deep-dive analysis of your current social performance with recommendations.</p></div>
+      <div class="addon-card"><h4>Brand Refresh</h4><p>Visual direction update — color, typography, and content aesthetic audit.</p></div>
+      <div class="addon-card"><h4>Strategy Intensive<span class="addon-price">$300</span></h4><p>One-time 90-minute deep-dive session with full strategy deliverable.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="statement-band" style="padding:100px 0">
+  <div class="container">
+    <div class="fade-up">
+      <h2 class="heading-lg" style="color:var(--ivory);margin-bottom:24px">Not sure which service<br>is right for you?</h2>
+      <p style="color:rgba(248,247,242,.5);margin-bottom:40px">Book a free discovery call. We'll figure it out together.</p>
+      <a href="contact.html" class="btn btn-ivory">Book a Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div><span class="footer-logo">Cinfluence</span><p class="footer-tagline">A premium social media management and content production studio.</p></div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html">Social Media Management</a></li><li><a href="services.html">Short-Form Content</a></li><li><a href="services.html">AI Content Production</a></li><li><a href="services.html">Influencer & UGC</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Connect</h5><ul class="footer-links"><li><a href="https://instagram.com/cinfluencedigital" target="_blank">Instagram</a></li><li><a href="https://tiktok.com/@cinfluencedigital" target="_blank">TikTok</a></li><li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Cinfluence. All rights reserved.</span><div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
