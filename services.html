@@ -7,7 +7,7 @@
 <meta name="description" content="Specialist content services for beauty, wellness, med spa, and aesthetic brands — social media management, short-form video, content strategy, AI production, UGC, brand identity, and website design."/>
 <link rel="stylesheet" href="style.css"/>
 <style>
-.services-full { display: flex; flex-direction: column; gap: 0; }
+.services-full { display: flex; flex-direction: column; gap: 0; max-width: 1440px; margin: 0 auto; }
 .svc-full-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -17,7 +17,8 @@
 .svc-full-row:nth-child(even) .svc-full-content { order: 2; }
 .svc-full-row:nth-child(even) .svc-full-img     { order: 1; }
 .svc-full-content {
-  padding: 96px 112px;
+  padding: 96px 80px;
+  max-width: 640px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,10 +44,12 @@
   grid-template-columns: 1fr 1fr;
   gap: 2px;
   background: var(--stone);
+  max-width: 1440px;
+  margin: 0 auto;
 }
 .project-svc {
   background: var(--espresso);
-  padding: 96px 112px;
+  padding: 96px 96px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -63,13 +66,13 @@
   .svc-full-row:nth-child(even) .svc-full-content,
   .svc-full-row:nth-child(even) .svc-full-img { order: unset; }
   .svc-full-img { height: 320px; }
-  .svc-full-content { padding: 64px 64px; }
+  .svc-full-content { padding: 64px 56px; }
   .project-services { grid-template-columns: 1fr; }
-  .project-svc { padding: 64px 64px; }
+  .project-svc { padding: 64px 56px; }
 }
 @media (max-width: 768px) {
-  .svc-full-content { padding: 52px 36px; }
-  .project-svc { padding: 52px 36px; }
+  .svc-full-content { padding: 52px 32px; }
+  .project-svc { padding: 52px 32px; }
 }
 </style>
 </head>

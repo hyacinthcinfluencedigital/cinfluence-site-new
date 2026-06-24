@@ -83,7 +83,7 @@ em { font-style: italic; }
 
 /* ── LAYOUT ────────────────────────────────────────── */
 .container { max-width: 1280px; margin: 0 auto; padding: 0 64px; }
-.section    { padding: 140px 0; }
+.section    { padding: 130px 0; }
 .section--dark  { background: var(--espresso); color: var(--ivory); }
 .section--stone { background: var(--stone); }
 .section--white { background: var(--white); }
@@ -261,6 +261,14 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(38,28,19,.07); }
 /* ── GOLD RULE ─────────────────────────────────────── */
 .gold-rule { display: inline-block; width: 40px; height: 1px; background: var(--gold); vertical-align: middle; margin-right: 14px; }
 
+
+/* ── INNER CONTENT (full-bleed section limiter) ────── */
+/* Constrains text content inside full-bleed grids so   */
+/* it never stretches beyond a readable column width    */
+.inner-content {
+  max-width: 560px;
+  width: 100%;
+}
 /* ── PHONE MOCKUP ──────────────────────────────────── */
 .phone { position: relative; flex-shrink: 0; }
 .phone-frame {
