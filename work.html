@@ -3,66 +3,80 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Work — CINFLUENCE</title>
-<meta name="description" content="Selected client work — case studies, Reel samples, and content production from Cinfluence."/>
+<title>Work — Cinfluence</title>
+<meta name="description" content="Selected work from Cinfluence — social media management, short-form video, content strategy, influencer campaigns, and brand identity for beauty, wellness, and lifestyle brands."/>
 <link rel="stylesheet" href="style.css"/>
 <style>
 /* Filter tabs */
 .filter-tabs {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 52px;
 }
 .filter-btn {
   font-size: .7rem;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: transparent;
-  border: 1px solid var(--stone);
-  color: var(--taupe);
+  border: 1px solid rgba(248,247,242,.15);
+  color: rgba(248,247,242,.5);
   transition: all .2s;
 }
 .filter-btn.active,
-.filter-btn:hover { background: var(--espresso); color: var(--ivory); border-color: var(--espresso); }
+.filter-btn:hover { background: var(--ivory); color: var(--espresso); border-color: var(--ivory); }
 
 /* Case study grid */
-.case-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 64px; }
+.case-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; margin-top: 80px; }
 .case-card { position: relative; }
 .case-card-img {
   position: relative;
   overflow: hidden;
   background: var(--stone);
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 .case-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
 .case-card:hover .case-card-img img { transform: scale(1.04); }
 .case-tag {
   position: absolute;
-  top: 20px; left: 20px;
+  top: 24px; left: 24px;
   background: var(--espresso);
   color: var(--ivory);
   font-size: .62rem;
   font-weight: 700;
   letter-spacing: .14em;
   text-transform: uppercase;
-  padding: 6px 14px;
+  padding: 8px 16px;
   z-index: 2;
 }
 .case-card-img .img-ph { aspect-ratio: 4/5; min-height: auto; }
 .case-wide .case-card-img .img-ph { aspect-ratio: 8/5; }
 .case-wide { grid-column: span 2; }
-.case-meta { display: flex; flex-direction: column; gap: 8px; }
+.case-meta { display: flex; flex-direction: column; gap: 12px; }
 .case-meta .label { color: var(--gold); }
-.case-meta h3 { font-family: var(--ff-serif); font-size: 1.3rem; }
+.case-meta h3 { font-family: var(--ff-serif); font-size: 1.3rem; margin-bottom: 4px; }
 .case-meta p  { font-size: .85rem; color: var(--taupe); line-height: 1.7; }
-.case-stats { display: flex; gap: 24px; margin-top: 12px; padding-top: 16px; border-top: 1px solid var(--stone); }
-.case-stat span  { display: block; font-family: var(--ff-serif); font-size: 1.5rem; font-weight: 400; color: var(--espresso); }
-.case-stat small { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--taupe); }
+.case-scope {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--stone);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.scope-tag {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border: 1px solid var(--stone);
+  color: var(--taupe);
+}
 
-/* Scroll strip (dark section on work page) */
+/* Scroll strip */
 .work-strip { background: var(--espresso); padding: 100px 0; overflow: hidden; }
 .strip-video-cell {
   width: 100%; height: 100%;
@@ -70,7 +84,6 @@
   align-items: center; justify-content: flex-end;
   padding-bottom: 20px; position: relative;
 }
-.strip-video-cell video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .strip-bg { position: absolute; inset: 0; }
 .strip-gradient { position: absolute; inset: 0; background: linear-gradient(to top, rgba(38,28,19,.82) 0%, transparent 55%); z-index: 1; }
 .strip-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%); z-index: 2; width: 36px; height: 36px; border-radius: 50%; background: rgba(184,147,90,.85); display: flex; align-items: center; justify-content: center; }
@@ -78,15 +91,15 @@
 .strip-info span  { display: block; font-size: .58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(248,247,242,.6); margin-bottom: 3px; }
 .strip-info strong{ display: block; font-size: .72rem; font-weight: 700; color: var(--ivory); }
 .sb1{background:linear-gradient(145deg,#2d1f1a,#4a2e25)}
-.sb2{background:linear-gradient(145deg,#1a2030,#2a3545)}
-.sb3{background:linear-gradient(145deg,#1e2a1e,#2d3d2d)}
-.sb4{background:linear-gradient(145deg,#2a1f2a,#3d2d3d)}
-.sb5{background:linear-gradient(145deg,#2a2010,#3d3015)}
-.sb6{background:linear-gradient(145deg,#101a2a,#1a2535)}
-.sb7{background:linear-gradient(145deg,#251a10,#382510)}
+.sb2{background:linear-gradient(145deg,#1e2a1e,#2d3d2d)}
+.sb3{background:linear-gradient(145deg,#2a1f2a,#3d2d3d)}
+.sb4{background:linear-gradient(145deg,#251a10,#382510)}
+.sb5{background:linear-gradient(145deg,#1a2030,#2a3545)}
+.sb6{background:linear-gradient(145deg,#2a2010,#3d3015)}
+.sb7{background:linear-gradient(145deg,#101a2a,#1a2535)}
 
-/* Graphics / Design samples */
-.design-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 52px; }
+/* Graphic design grid */
+.design-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 64px; }
 .design-item { aspect-ratio: 1; background: var(--stone); position: relative; overflow: hidden; }
 .design-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s var(--ease); }
 .design-item:hover img { transform: scale(1.06); }
@@ -101,6 +114,198 @@
 @media (max-width: 768px) {
   .case-grid { grid-template-columns: 1fr; }
   .design-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+/* ── CONTENT SHOWCASE TABS ──────────────────────────── */
+.showcase-section { background: var(--stone); }
+.showcase-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--stone-mid, #D4CEC7);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.showcase-tabs::-webkit-scrollbar { display: none; }
+.showcase-tab {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 20px 36px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--taupe);
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  bottom: -1px;
+}
+.showcase-tab:hover { color: var(--espresso); }
+.showcase-tab.active { color: var(--espresso); border-bottom-color: var(--gold); }
+
+.showcase-panel { display: none; padding: 72px 0; }
+.showcase-panel.active { display: block; }
+
+/* Phone mockup grid */
+.showcase-phone-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+.showcase-phone-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.showcase-phone-frame {
+  background: #1a110b;
+  border-radius: 32px;
+  padding: 8px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.22), inset 0 0 0 1px rgba(255,255,255,.06);
+  width: 100%;
+  max-width: 180px;
+}
+.showcase-phone-notch {
+  position: absolute;
+  top: 8px; left: 50%;
+  transform: translateX(-50%);
+  width: 52px; height: 18px;
+  background: #1a110b;
+  border-radius: 0 0 11px 11px;
+  z-index: 3;
+}
+.showcase-phone-screen {
+  border-radius: 25px;
+  overflow: hidden;
+  aspect-ratio: 9/19.5;
+  background: var(--stone);
+  position: relative;
+}
+.showcase-phone-screen img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.showcase-phone-ph {
+  width: 100%; height: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #E8E4DE;
+  text-align: center;
+  padding: 16px;
+}
+.showcase-phone-ph .ph-num {
+  font-family: var(--ff-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: rgba(83,65,42,.2);
+  line-height: 1;
+}
+.showcase-phone-ph .ph-label {
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(83,65,42,.4);
+}
+.showcase-phone-ph .ph-file {
+  font-size: .6rem;
+  color: rgba(83,65,42,.3);
+  line-height: 1.5;
+}
+.showcase-phone-caption {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  text-align: center;
+}
+
+/* Stories: taller ratio for Instagram stories */
+.showcase-stories .showcase-phone-screen { aspect-ratio: 9/16; }
+
+/* Square grid for static/carousel post designs */
+.showcase-square-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  margin-top: 56px;
+}
+.showcase-square-item {
+  aspect-ratio: 1;
+  background: var(--stone);
+  position: relative;
+  overflow: hidden;
+}
+.showcase-square-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s var(--ease); }
+.showcase-square-item:hover img { transform: scale(1.05); }
+.showcase-square-ph {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #E8E4DE;
+  text-align: center;
+  padding: 12px;
+}
+.showcase-square-ph .ph-num {
+  font-family: var(--ff-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: rgba(83,65,42,.18);
+  line-height: 1;
+}
+.showcase-square-ph .ph-label {
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(83,65,42,.35);
+}
+.showcase-square-ph .ph-file {
+  font-size: .58rem;
+  color: rgba(83,65,42,.25);
+}
+
+/* AI content - 2-col layout with image gen + video gen side by side */
+.ai-showcase-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 56px;
+}
+.ai-col-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(83,65,42,.15);
+}
+.ai-col-header .label { color: var(--gold); }
+.ai-col-desc { font-size: .84rem; color: var(--taupe); line-height: 1.75; margin-bottom: 32px; }
+
+@media (max-width: 1024px) {
+  .showcase-phone-grid { grid-template-columns: repeat(3, 1fr); }
+  .showcase-square-grid { grid-template-columns: repeat(3, 1fr); }
+  .ai-showcase-cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .showcase-phone-grid { grid-template-columns: repeat(2, 1fr); }
+  .showcase-square-grid { grid-template-columns: repeat(2, 1fr); }
+  .showcase-tab { padding: 16px 24px; }
 }
 </style>
 </head>
@@ -118,20 +323,20 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-cta">
-      <a href="contact.html" class="btn btn-primary">Book A Call</a>
-      <button class="hamburger" onclick="openMenu()"><span></span><span></span><span></span></button>
+      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary">Book a Call</a>
+      <button class="hamburger" onclick="openMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="closeMenu()">✕</button>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">✕</button>
   <a href="index.html" onclick="closeMenu()">Home</a>
   <a href="services.html" onclick="closeMenu()">Services</a>
   <a href="work.html" onclick="closeMenu()">Work</a>
   <a href="pricing.html" onclick="closeMenu()">Pricing</a>
   <a href="about.html" onclick="closeMenu()">About</a>
   <a href="contact.html" onclick="closeMenu()">Contact</a>
-  <a href="contact.html" class="btn btn-primary" onclick="closeMenu()">Book A Call</a>
+  <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-primary" onclick="closeMenu()">Book a Call</a>
 </div>
 
 <div class="nav-offset">
@@ -140,115 +345,141 @@
     <div class="container">
       <span class="label">Portfolio</span>
       <h1 class="heading-xl">Selected <em>Work</em></h1>
-      <p>A curated selection of client work across social media management, short-form content, influencer campaigns, and paid advertising.</p>
-      <div class="filter-tabs">
-        <button class="filter-btn active">All Work</button>
-        <button class="filter-btn">Social Media</button>
-        <button class="filter-btn">Short-Form Video</button>
-        <button class="filter-btn">Influencer & UGC</button>
-        <button class="filter-btn">Paid Ads</button>
-        <button class="filter-btn">Graphic Design</button>
+      <p>A curated selection of client work across social media management, short-form content, influencer campaigns, brand identity, and website design.</p>
+      <div class="filter-tabs" role="tablist" aria-label="Filter work by category">
+        <button class="filter-btn active" role="tab" aria-selected="true">All Work</button>
+        <button class="filter-btn" role="tab" aria-selected="false">Social Media</button>
+        <button class="filter-btn" role="tab" aria-selected="false">Short-Form Video</button>
+        <button class="filter-btn" role="tab" aria-selected="false">Influencer &amp; UGC</button>
+        <button class="filter-btn" role="tab" aria-selected="false">Brand Identity</button>
+        <button class="filter-btn" role="tab" aria-selected="false">Content Design</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Case Studies -->
+<!-- ── CASE STUDIES ───────────────────────────────────── -->
 <section class="section">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="label">Case Studies</span>
-      <h2 class="heading-lg">Client <em>Results</em></h2>
+      <span class="label">Client Work</span>
+      <h2 class="heading-lg">Brands I've <em>worked with</em></h2>
     </div>
     <div class="case-grid">
 
-      <!-- iLuxe Aesthetic Center — Wide -->
+      <!-- iLuxe — Wide, Lead -->
       <div class="case-card case-wide fade-up">
         <div class="case-card-img">
           <div class="case-tag">Medical Aesthetics</div>
-          <!-- ATTACH: work-iluxe.jpg — 1600×1000px -->
-          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">iLuxe Aesthetic Center — Hero</div><div class="ph-sub">Attach: work-iluxe.jpg · 1600×1000px</div></div>
+          <img src="assets/work/iluxe-graphicdesigns.jpg" alt="iLuxe Aesthetic Center — facial treatment content and social media graphics" loading="lazy" width="1600" height="1000" style="width:100%;height:100%;object-fit:cover">
         </div>
         <div class="case-meta">
           <span class="label">iLuxe Aesthetic Center</span>
-          <h3>Social Media Management + Brand Content</h3>
-          <p>Built iLuxe's social presence with a polished, clinic-appropriate aesthetic — consistent content, purposeful captions, and a brand voice that reflects the premium experience clients receive in-clinic.</p>
-          <div class="case-stats">
-            <div class="case-stat"><span>↑</span><small>Engagement Rate</small></div>
-            <div class="case-stat"><span>90</span><small>Days to Visible Growth</small></div>
-            <div class="case-stat"><span>✦</span><small>Consistent Brand Aesthetic</small></div>
+          <h3>Social Media Management &amp; Content Creation</h3>
+          <p>Managed social media presence for a premium aesthetic clinic, developing a content strategy aligned with their treatment offering and patient trust-building goals. Responsibilities included content planning, visual content creation, caption writing, and platform management across Instagram and Facebook.</p>
+          <div class="case-scope" aria-label="Scope of work">
+            <span class="scope-tag">Social Media Management</span>
+            <span class="scope-tag">Content Strategy</span>
+            <span class="scope-tag">Visual Content Creation</span>
+            <span class="scope-tag">Caption Writing</span>
+            <span class="scope-tag">Instagram · Facebook</span>
           </div>
         </div>
       </div>
 
-      <!-- Hair Solution Nails & Spa -->
+      <!-- Hair Solution -->
       <div class="case-card fade-up">
         <div class="case-card-img">
-          <div class="case-tag">Beauty & Wellness</div>
-          <!-- ATTACH: work-hair-solution.jpg — 800×1000px -->
-          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">Hair Solution Nails &amp; Spa — Case Study</div><div class="ph-sub">Attach: work-hair-solution.jpg · 800×1000px</div></div>
+          <div class="case-tag">Beauty &amp; Wellness</div>
+          <img src="assets/work/hairsolution-graphicdesigns.jpg" alt="Hair Solution Nails &amp; Spa — nail, lash and beauty service promotions" loading="lazy" width="800" height="1000" style="width:100%;height:100%;object-fit:cover">
         </div>
         <div class="case-meta">
           <span class="label">Hair Solution Nails &amp; Spa</span>
-          <h3>Content Strategy + Social Media Management</h3>
-          <p>Developed a content-first strategy that brought Hair Solution's services to life online — attracting new clients through consistent, visually engaging posts and community-building.</p>
-          <div class="case-stats">
-            <div class="case-stat"><span>↑</span><small>Local Reach</small></div>
-            <div class="case-stat"><span>✦</span><small>Consistent Content Presence</small></div>
+          <h3>Social Media &amp; Short-Form Video</h3>
+          <p>Managed social media channels and produced short-form video content for a beauty and wellness studio, building a consistent brand presence and showcasing their services through platform-native content.</p>
+          <div class="case-scope" aria-label="Scope of work">
+            <span class="scope-tag">Social Media Management</span>
+            <span class="scope-tag">Short-Form Video</span>
+            <span class="scope-tag">Content Creation</span>
+            <span class="scope-tag">Instagram · TikTok</span>
           </div>
         </div>
       </div>
 
-      <!-- Proper Ecom -->
-      <div class="case-card fade-up">
+      <!-- Style State — Wide -->
+      <div class="case-card case-wide fade-up">
         <div class="case-card-img">
-          <div class="case-tag">DTC / E-Commerce</div>
-          <!-- ATTACH: work-proper-ecom.jpg — 800×1000px -->
-          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">Proper Ecom — Case Study</div><div class="ph-sub">Attach: work-proper-ecom.jpg · 800×1000px</div></div>
+          <div class="case-tag">Fashion &amp; Apparel</div>
+          <img src="assets/work/stylestate-graphicdesigns.jpg" alt="Style State — fashion editorial and social media management" loading="lazy" width="1600" height="1000" style="width:100%;height:100%;object-fit:cover">
         </div>
         <div class="case-meta">
-          <span class="label">Proper Ecom</span>
-          <h3>AI Content Production Setup</h3>
-          <p>Designed and implemented a full AI content production workflow that scaled their output without increasing headcount.</p>
-          <div class="case-stats">
-            <div class="case-stat"><span>4×</span><small>Content Output</small></div>
-            <div class="case-stat"><span>-60%</span><small>Production Time</small></div>
+          <span class="label">Style State</span>
+          <h3>Full Social Media Management &amp; Reels Production</h3>
+          <p>Took Style State from an inconsistent posting schedule to a cohesive, premium social presence. Managed full content calendar planning, Reels scripting and production, community engagement, and brand voice development across platforms — building a consistent aesthetic and tone that reflected the brand's independent fashion positioning.</p>
+          <div class="case-scope" aria-label="Scope of work">
+            <span class="scope-tag">Social Media Management</span>
+            <span class="scope-tag">Reels Production</span>
+            <span class="scope-tag">Content Calendar</span>
+            <span class="scope-tag">Community Management</span>
+            <span class="scope-tag">Brand Voice</span>
+            <span class="scope-tag">Instagram · TikTok</span>
           </div>
         </div>
       </div>
 
-      <!-- Flow -->
+      <!-- W&Co. -->
       <div class="case-card fade-up">
         <div class="case-card-img">
-          <div class="case-tag">Tech / SaaS</div>
-          <!-- ATTACH: work-flow.jpg — 800×1000px -->
-          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">Flow — Case Study</div><div class="ph-sub">Attach: work-flow.jpg · 800×1000px</div></div>
+          <div class="case-tag">E-Commerce</div>
+          <img src="assets/work/w_co-graphicdesigns.jpg" alt="Winnie &amp; Co. — luxury accessories and fashion content" loading="lazy" width="800" height="1000" style="width:100%;height:100%;object-fit:cover">
         </div>
         <div class="case-meta">
-          <span class="label">Flow</span>
-          <h3>Social Presence Built from Zero</h3>
-          <p>Launched Flow's social media presence from scratch — brand voice, visual identity, and content strategy aligned to product launch.</p>
-          <div class="case-stats">
-            <div class="case-stat"><span>0→5K</span><small>Followers at Launch</small></div>
-            <div class="case-stat"><span>8%</span><small>Avg. Engagement Rate</small></div>
+          <span class="label">Winnie &amp; Co.</span>
+          <h3>Content Strategy &amp; Social Management</h3>
+          <p>Developed and managed organic content strategy for an e-commerce brand, building a content system aligned to their product catalogue, seasonal promotions, and brand identity.</p>
+          <div class="case-scope" aria-label="Scope of work">
+            <span class="scope-tag">Content Strategy</span>
+            <span class="scope-tag">Social Media Management</span>
+            <span class="scope-tag">Visual Content</span>
+            <span class="scope-tag">Instagram · Facebook</span>
           </div>
         </div>
       </div>
 
-      <!-- Sales Igniters -->
+      <!-- Epic Tales -->
       <div class="case-card fade-up">
         <div class="case-card-img">
-          <div class="case-tag">B2B / Finance</div>
-          <!-- ATTACH: work-sales-igniters.jpg — 800×1000px -->
-          <div class="img-ph"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><div class="ph-title">Sales Igniters — Case Study</div><div class="ph-sub">Attach: work-sales-igniters.jpg · 800×1000px</div></div>
+          <div class="case-tag">Lifestyle &amp; Entertainment</div>
+          <img src="assets/work/epictales-graphicdesigns.jpg" alt="Epic Tales — children's book content and social media strategy" loading="lazy" width="800" height="1000" style="width:100%;height:100%;object-fit:cover">
         </div>
         <div class="case-meta">
-          <span class="label">Sales Igniters</span>
-          <h3>Lead-Gen Content Strategy</h3>
-          <p>Rebuilt their content approach from brand awareness to lead generation — attracting qualified inbound interest through LinkedIn and Instagram.</p>
-          <div class="case-stats">
-            <div class="case-stat"><span>+140%</span><small>Inbound Leads</small></div>
-            <div class="case-stat"><span>2.4×</span><small>Profile Visits</small></div>
+          <span class="label">Epic Tales</span>
+          <h3>Content Creation &amp; Social Strategy</h3>
+          <p>Produced content and managed social media strategy for a lifestyle and entertainment brand, developing a distinct visual identity and consistent content cadence across platforms.</p>
+          <div class="case-scope" aria-label="Scope of work">
+            <span class="scope-tag">Content Creation</span>
+            <span class="scope-tag">Social Strategy</span>
+            <span class="scope-tag">Short-Form Video</span>
+            <span class="scope-tag">Instagram · TikTok</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rabble Clothing -->
+      <div class="case-card fade-up">
+        <div class="case-card-img">
+          <div class="case-tag">Apparel</div>
+          <img src="assets/work/rabble-graphicdesigns.jpg" alt="Rabble Clothing — kids apparel e-commerce content" loading="lazy" width="800" height="1000" style="width:100%;height:100%;object-fit:cover">
+        </div>
+        <div class="case-meta">
+          <span class="label">Rabble Clothing</span>
+          <h3>Social Media &amp; Content Production</h3>
+          <p>Supported social media management and content production for an apparel brand, contributing to their visual content library and platform presence.</p>
+          <div class="case-scope" aria-label="Scope of work">
+            <span class="scope-tag">Social Media</span>
+            <span class="scope-tag">Content Production</span>
+            <span class="scope-tag">Visual Design</span>
+            <span class="scope-tag">Instagram</span>
           </div>
         </div>
       </div>
@@ -257,63 +488,377 @@
   </div>
 </section>
 
-<!-- Reel Showcase Strip -->
+<!-- ── REEL SHOWCASE STRIP ────────────────────────────── -->
 <section class="work-strip">
   <div class="container">
-    <div class="section-header fade-up" style="margin-bottom:52px">
+    <div class="section-header fade-up" style="margin-bottom:64px">
       <span class="label" style="color:var(--gold)">Short-Form Content</span>
-      <h2 class="heading-lg" style="color:var(--ivory)">Reels & <em style="color:var(--gold)">Short-Form</em></h2>
-      <p class="body-sm" style="color:rgba(248,247,242,.5);margin-top:16px">Hover to pause. Videos play with audio on click.</p>
+      <h2 class="heading-lg" style="color:var(--ivory)">Reels &amp; <em style="color:var(--gold)">Short-Form</em></h2>
+      <p class="body-sm" style="color:rgba(248,247,242,.5);margin-top:24px">Replace placeholder cells with real video assets as they become available.</p>
     </div>
   </div>
-  <div class="scroll-strip-wrap">
+  <div class="scroll-strip-wrap" role="region" aria-label="Reel content showcase">
     <div class="scroll-track">
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty</span><strong>Hair Solution</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty</span><strong>iLuxe</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>DTC</span><strong>Proper Ecom</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Tech</span><strong>Flow</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Hair</span><strong>Hair Solution</strong></div></div></div></div></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty</span><strong>Hair Solution</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty</span><strong>iLuxe</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>DTC</span><strong>Proper Ecom</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Tech</span><strong>Flow</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble</strong></div></div></div></div></div>
-      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Hair</span><strong>Hair Solution</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Medical Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty &amp; Wellness</span><strong>Hair Solution</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>E-Commerce</span><strong>Winnie &amp; Co.</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Lifestyle</span><strong>Epic Tales</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
+      <!-- Duplicate -->
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb1"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Medical Aesthetics</span><strong>iLuxe</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb2"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Beauty &amp; Wellness</span><strong>Hair Solution</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb3"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb4"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>E-Commerce</span><strong>Winnie &amp; Co.</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb5"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Lifestyle</span><strong>Epic Tales</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb6"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Apparel</span><strong>Rabble</strong></div></div></div></div></div>
+      <div class="strip-phone"><div class="phone-frame"><div class="phone-notch"></div><div class="phone-screen"><div class="strip-video-cell"><div class="strip-bg sb7"></div><div class="strip-gradient"></div><div class="strip-play"><svg width="11" height="13" viewBox="0 0 12 14" fill="white" aria-hidden="true"><path d="M1 1l10 6-10 6V1z"/></svg></div><div class="strip-info"><span>Fashion</span><strong>Style State</strong></div></div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- Graphic Design / Static Samples -->
-<section class="section section--stone">
+<!-- ── CONTENT SHOWCASE (TABBED) ──────────────────────── -->
+<section class="showcase-section">
   <div class="container">
-    <div class="section-header fade-up">
-      <span class="label">Graphic Design</span>
-      <h2 class="heading-lg">Static & <em>Carousel</em> Content</h2>
-    </div>
-    <div class="design-grid fade-up">
-      <!-- ATTACH: design samples as design-1.jpg through design-8.jpg, 1:1 ratio -->
-      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 1</div><div class="ph-sub">design-1.jpg · 1:1</div></div></div>
-      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 2</div><div class="ph-sub">design-2.jpg · 1:1</div></div></div>
-      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 3</div><div class="ph-sub">design-3.jpg · 1:1</div></div></div>
-      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 4</div><div class="ph-sub">design-4.jpg · 1:1</div></div></div>
-      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 5</div><div class="ph-sub">design-5.jpg · 1:1</div></div></div>
-      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 6</div><div class="ph-sub">design-6.jpg · 1:1</div></div></div>
-      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 7</div><div class="ph-sub">design-7.jpg · 1:1</div></div></div>
-      <div class="design-item"><div class="img-ph"><div class="ph-title">Design 8</div><div class="ph-sub">design-8.jpg · 1:1</div></div></div>
+    <div class="section-header fade-up" style="margin-bottom:48px">
+      <span class="label">Content Design</span>
+      <h2 class="heading-lg">Content <em>Showcase</em></h2>
+      <p class="body-sm" style="margin-top:16px">Browse work by content type — graphics, stories, UGC campaigns, and AI-generated content.</p>
     </div>
   </div>
+
+  <!-- Tab bar -->
+  <div class="container" style="padding-bottom:0">
+    <div class="showcase-tabs" role="tablist" aria-label="Content showcase categories">
+      <button class="showcase-tab active" role="tab" aria-selected="true"  aria-controls="panel-statics"  onclick="switchTab(this,'panel-statics')">Static &amp; Carousel</button>
+      <button class="showcase-tab"        role="tab" aria-selected="false" aria-controls="panel-stories"  onclick="switchTab(this,'panel-stories')">Instagram Stories</button>
+      <button class="showcase-tab"        role="tab" aria-selected="false" aria-controls="panel-ugc"      onclick="switchTab(this,'panel-ugc')">UGC &amp; Influencer</button>
+      <button class="showcase-tab"        role="tab" aria-selected="false" aria-controls="panel-ai"       onclick="switchTab(this,'panel-ai')">AI Content Production</button>
+    </div>
+  </div>
+
+  <!-- ── PANEL 1: Static & Carousel ── -->
+  <div class="showcase-panel active" id="panel-statics" role="tabpanel" aria-label="Static and Carousel Designs">
+    <div class="container">
+      <p class="body-sm" style="max-width:560px;margin-bottom:0">Feed posts, carousels, and graphic content created for client social channels — designed to match each brand's visual identity and stop the scroll.</p>
+      <!-- Square grid: 1:1 ratio for Instagram/Facebook feed posts -->
+      <div class="showcase-square-grid fade-up">
+        <div class="showcase-square-item"><img src="assets/work/iluxe-graphicdesigns.jpg" alt="iLuxe static post design" loading="lazy"></div>
+        <div class="showcase-square-item"><img src="assets/work/hairsolution-graphicdesigns.jpg" alt="Hair Solution static post design" loading="lazy"></div>
+        <div class="showcase-square-item"><img src="assets/work/stylestate-graphicdesigns.jpg" alt="Style State static post design" loading="lazy"></div>
+        <div class="showcase-square-item"><img src="assets/work/w_co-graphicdesigns.jpg" alt="Winnie &amp; Co. static post design" loading="lazy"></div>
+        <div class="showcase-square-item">
+          <div class="showcase-square-ph"><div class="ph-num">05</div><div class="ph-label">Design 5</div><div class="ph-file">design-5.jpg · 1:1</div></div>
+        </div>
+        <div class="showcase-square-item">
+          <div class="showcase-square-ph"><div class="ph-num">06</div><div class="ph-label">Design 6</div><div class="ph-file">design-6.jpg · 1:1</div></div>
+        </div>
+        <div class="showcase-square-item">
+          <div class="showcase-square-ph"><div class="ph-num">07</div><div class="ph-label">Design 7</div><div class="ph-file">design-7.jpg · 1:1</div></div>
+        </div>
+        <div class="showcase-square-item">
+          <div class="showcase-square-ph"><div class="ph-num">08</div><div class="ph-label">Design 8</div><div class="ph-file">design-8.jpg · 1:1</div></div>
+        </div>
+      </div>
+      <!-- Phone mockup row for carousel preview -->
+      <div style="margin-top:56px">
+        <span class="label" style="color:var(--gold);display:block;margin-bottom:32px">Carousel previews</span>
+        <div class="showcase-phone-grid">
+          <div class="showcase-phone-wrap">
+            <div class="showcase-phone-frame" style="position:relative">
+              <div class="showcase-phone-notch"></div>
+              <div class="showcase-phone-screen">
+                <img src="assets/work/iluxe-graphicdesigns.jpg" alt="iLuxe carousel preview" loading="lazy">
+              </div>
+            </div>
+            <span class="showcase-phone-caption">iLuxe Aesthetic</span>
+          </div>
+          <div class="showcase-phone-wrap">
+            <div class="showcase-phone-frame" style="position:relative">
+              <div class="showcase-phone-notch"></div>
+              <div class="showcase-phone-screen">
+                <div class="showcase-phone-ph"><div class="ph-num">02</div><div class="ph-label">Carousel 2</div><div class="ph-file">carousel-2.jpg<br>9:16 · 1080×1920px</div></div>
+              </div>
+            </div>
+            <span class="showcase-phone-caption">Hair Solution</span>
+          </div>
+          <div class="showcase-phone-wrap">
+            <div class="showcase-phone-frame" style="position:relative">
+              <div class="showcase-phone-notch"></div>
+              <div class="showcase-phone-screen">
+                <div class="showcase-phone-ph"><div class="ph-num">03</div><div class="ph-label">Carousel 3</div><div class="ph-file">carousel-3.jpg<br>9:16 · 1080×1920px</div></div>
+              </div>
+            </div>
+            <span class="showcase-phone-caption">Style State</span>
+          </div>
+          <div class="showcase-phone-wrap">
+            <div class="showcase-phone-frame" style="position:relative">
+              <div class="showcase-phone-notch"></div>
+              <div class="showcase-phone-screen">
+                <div class="showcase-phone-ph"><div class="ph-num">04</div><div class="ph-label">Carousel 4</div><div class="ph-file">carousel-4.jpg<br>9:16 · 1080×1920px</div></div>
+              </div>
+            </div>
+            <span class="showcase-phone-caption">Winnie &amp; Co.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PANEL 2: Instagram Stories ── -->
+  <div class="showcase-panel" id="panel-stories" role="tabpanel" aria-label="Instagram Stories">
+    <div class="container">
+      <p class="body-sm" style="max-width:560px;margin-bottom:0">Vertical story content designed for Instagram and Facebook Stories — announcements, promotions, behind-the-scenes, and interactive formats.</p>
+      <div class="showcase-phone-grid showcase-stories fade-up" style="margin-top:56px">
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <img src="assets/work/iluxe-graphicdesigns.jpg" alt="iLuxe Instagram Story" loading="lazy">
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Story — iLuxe</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">02</div><div class="ph-label">Story 2</div><div class="ph-file">story-2.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Story — Hair Solution</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">03</div><div class="ph-label">Story 3</div><div class="ph-file">story-3.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Story — Style State</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">04</div><div class="ph-label">Story 4</div><div class="ph-file">story-4.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Story — Winnie &amp; Co.</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">05</div><div class="ph-label">Story 5</div><div class="ph-file">story-5.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Story — Placeholder</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">06</div><div class="ph-label">Story 6</div><div class="ph-file">story-6.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Story — Placeholder</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">07</div><div class="ph-label">Story 7</div><div class="ph-file">story-7.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Story — Placeholder</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">08</div><div class="ph-label">Story 8</div><div class="ph-file">story-8.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Story — Placeholder</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PANEL 3: UGC & Influencer ── -->
+  <div class="showcase-panel" id="panel-ugc" role="tabpanel" aria-label="UGC and Influencer Marketing">
+    <div class="container">
+      <p class="body-sm" style="max-width:600px;margin-bottom:0">Creator content and influencer campaigns — UGC-style Reels, partnership posts, and seeding campaigns sourced and managed for client brands.</p>
+      <div class="showcase-phone-grid fade-up" style="margin-top:56px">
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <img src="assets/work/iluxe-graphicdesigns.jpg" alt="UGC case study — iLuxe" loading="lazy">
+            </div>
+          </div>
+          <span class="showcase-phone-caption">UGC — iLuxe</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">02</div><div class="ph-label">UGC Creator 2</div><div class="ph-file">ugc-2.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">UGC — Placeholder</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">03</div><div class="ph-label">UGC Creator 3</div><div class="ph-file">ugc-3.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">UGC — Placeholder</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">04</div><div class="ph-label">UGC Creator 4</div><div class="ph-file">ugc-4.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Influencer — Placeholder</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">05</div><div class="ph-label">UGC Creator 5</div><div class="ph-file">ugc-5.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Influencer — Placeholder</span>
+        </div>
+        <div class="showcase-phone-wrap">
+          <div class="showcase-phone-frame" style="position:relative">
+            <div class="showcase-phone-notch"></div>
+            <div class="showcase-phone-screen">
+              <div class="showcase-phone-ph"><div class="ph-num">06</div><div class="ph-label">UGC Creator 6</div><div class="ph-file">ugc-6.jpg<br>9:16 · 1080×1920px</div></div>
+            </div>
+          </div>
+          <span class="showcase-phone-caption">Influencer — Placeholder</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PANEL 4: AI Content Production ── -->
+  <div class="showcase-panel" id="panel-ai" role="tabpanel" aria-label="AI Content Production">
+    <div class="container">
+      <p class="body-sm" style="max-width:600px;margin-bottom:0">AI-assisted image generation and video production — on-brand content at scale, without losing quality or voice.</p>
+      <div class="ai-showcase-cols fade-up">
+
+        <!-- Image Generation -->
+        <div>
+          <div class="ai-col-header">
+            <span class="label">Image Generation</span>
+          </div>
+          <p class="ai-col-desc">AI-generated visuals trained on brand assets — product mockups, lifestyle imagery, and campaign graphics produced at speed.</p>
+          <div class="showcase-square-grid" style="grid-template-columns:repeat(3,1fr);margin-top:0">
+            <div class="showcase-square-item"><img src="assets/work/iluxe-graphicdesigns.jpg" alt="AI image generation example" loading="lazy"></div>
+            <div class="showcase-square-item">
+              <div class="showcase-square-ph"><div class="ph-num">02</div><div class="ph-label">AI Image 2</div><div class="ph-file">ai-img-2.jpg<br>1:1 or 4:5</div></div>
+            </div>
+            <div class="showcase-square-item">
+              <div class="showcase-square-ph"><div class="ph-num">03</div><div class="ph-label">AI Image 3</div><div class="ph-file">ai-img-3.jpg<br>1:1 or 4:5</div></div>
+            </div>
+            <div class="showcase-square-item">
+              <div class="showcase-square-ph"><div class="ph-num">04</div><div class="ph-label">AI Image 4</div><div class="ph-file">ai-img-4.jpg<br>1:1 or 4:5</div></div>
+            </div>
+            <div class="showcase-square-item">
+              <div class="showcase-square-ph"><div class="ph-num">05</div><div class="ph-label">AI Image 5</div><div class="ph-file">ai-img-5.jpg<br>1:1 or 4:5</div></div>
+            </div>
+            <div class="showcase-square-item">
+              <div class="showcase-square-ph"><div class="ph-num">06</div><div class="ph-label">AI Image 6</div><div class="ph-file">ai-img-6.jpg<br>1:1 or 4:5</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Generation -->
+        <div>
+          <div class="ai-col-header">
+            <span class="label">Video Generation</span>
+          </div>
+          <p class="ai-col-desc">AI-generated and AI-assisted short-form video — scripted, voice-overed, or fully generated for brands that need scalable motion content.</p>
+          <div class="showcase-phone-grid" style="grid-template-columns:repeat(3,1fr);margin-top:0">
+            <div class="showcase-phone-wrap">
+              <div class="showcase-phone-frame" style="position:relative">
+                <div class="showcase-phone-notch"></div>
+                <div class="showcase-phone-screen">
+                  <img src="assets/work/hairsolution-graphicdesigns.jpg" alt="AI video generation example" loading="lazy">
+                </div>
+              </div>
+              <span class="showcase-phone-caption">AI Video 1</span>
+            </div>
+            <div class="showcase-phone-wrap">
+              <div class="showcase-phone-frame" style="position:relative">
+                <div class="showcase-phone-notch"></div>
+                <div class="showcase-phone-screen">
+                  <div class="showcase-phone-ph"><div class="ph-num">02</div><div class="ph-label">AI Video 2</div><div class="ph-file">ai-vid-2.mp4<br>9:16</div></div>
+                </div>
+              </div>
+              <span class="showcase-phone-caption">AI Video 2</span>
+            </div>
+            <div class="showcase-phone-wrap">
+              <div class="showcase-phone-frame" style="position:relative">
+                <div class="showcase-phone-notch"></div>
+                <div class="showcase-phone-screen">
+                  <div class="showcase-phone-ph"><div class="ph-num">03</div><div class="ph-label">AI Video 3</div><div class="ph-file">ai-vid-3.mp4<br>9:16</div></div>
+                </div>
+              </div>
+              <span class="showcase-phone-caption">AI Video 3</span>
+            </div>
+            <div class="showcase-phone-wrap">
+              <div class="showcase-phone-frame" style="position:relative">
+                <div class="showcase-phone-notch"></div>
+                <div class="showcase-phone-screen">
+                  <div class="showcase-phone-ph"><div class="ph-num">04</div><div class="ph-label">AI Video 4</div><div class="ph-file">ai-vid-4.mp4<br>9:16</div></div>
+                </div>
+              </div>
+              <span class="showcase-phone-caption">AI Video 4</span>
+            </div>
+            <div class="showcase-phone-wrap">
+              <div class="showcase-phone-frame" style="position:relative">
+                <div class="showcase-phone-notch"></div>
+                <div class="showcase-phone-screen">
+                  <div class="showcase-phone-ph"><div class="ph-num">05</div><div class="ph-label">AI Video 5</div><div class="ph-file">ai-vid-5.mp4<br>9:16</div></div>
+                </div>
+              </div>
+              <span class="showcase-phone-caption">AI Video 5</span>
+            </div>
+            <div class="showcase-phone-wrap">
+              <div class="showcase-phone-frame" style="position:relative">
+                <div class="showcase-phone-notch"></div>
+                <div class="showcase-phone-screen">
+                  <div class="showcase-phone-ph"><div class="ph-num">06</div><div class="ph-label">AI Video 6</div><div class="ph-file">ai-vid-6.mp4<br>9:16</div></div>
+                </div>
+              </div>
+              <span class="showcase-phone-caption">AI Video 6</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </section>
 
-<!-- CTA -->
+<!-- ── CTA ────────────────────────────────────────────── -->
 <div class="statement-band" style="padding:100px 0">
   <div class="container">
     <div class="fade-up">
-      <h2 class="heading-lg" style="color:var(--ivory);margin-bottom:24px">Want results like these<br>for your <em>brand?</em></h2>
-      <a href="contact.html" class="btn btn-ivory" style="margin-top:16px">Book a Discovery Call</a>
+      <h2 class="heading-lg" style="color:var(--ivory);margin-bottom:32px">Let's build something<br>worth <em>remembering.</em></h2>
+      <p style="color:rgba(248,247,242,.5);margin-bottom:52px;max-width:420px;margin-left:auto;margin-right:auto">Discovery calls are free and there's no obligation. Tell me about your brand.</p>
+      <a href="https://calendly.com/hyacinth-cinfluencedigital/discovery-call" target="_blank" class="btn btn-ivory" style="margin-top:8px">Book a Discovery Call</a>
     </div>
   </div>
 </div>
@@ -321,14 +866,33 @@
 <footer>
   <div class="container">
     <div class="footer-top">
-      <div><span class="footer-logo">Cinfluence</span><p class="footer-tagline">A premium social media management and content production studio.</p></div>
-      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html">Social Media Management</a></li><li><a href="services.html">Short-Form Content</a></li><li><a href="services.html">AI Content Production</a></li><li><a href="services.html">Influencer & UGC</a></li></ul></div>
-      <div class="footer-col"><h5>Company</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h5>Connect</h5><ul class="footer-links"><li><a href="https://instagram.com/cinfluencedigital" target="_blank">Instagram</a></li><li><a href="https://tiktok.com/@cinfluencedigital" target="_blank">TikTok</a></li><li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank">LinkedIn</a></li><li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li></ul></div>
+      <div><span class="footer-logo">Cinfluence</span><p class="footer-tagline">A founder-led specialist content studio helping beauty, wellness, med spa, and aesthetic brands build trust, authority, and visibility through strategic content systems.</p></div>
+      <div class="footer-col"><h5>Services</h5><ul class="footer-links"><li><a href="services.html">Social Media Management</a></li><li><a href="services.html">Short-Form Video</a></li><li><a href="services.html">Content Strategy</a></li><li><a href="services.html">AI Content Production</a></li><li><a href="services.html">UGC &amp; Influencer</a></li></ul></div>
+      <div class="footer-col"><h5>Studio</h5><ul class="footer-links"><li><a href="about.html">About</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h5>Connect</h5><ul class="footer-links"><li><a href="https://instagram.com/cinfluence.digital" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://tiktok.com/@cinfluence.digital" target="_blank" rel="noopener">TikTok</a></li><li><a href="https://linkedin.com/company/cinfluencedigital" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="mailto:hello@cinfluencedigital.com">hello@cinfluencedigital.com</a></li></ul></div>
     </div>
     <div class="footer-bottom"><span>© 2026 Cinfluence. All rights reserved.</span><div class="footer-social"><a href="#">Privacy</a><a href="#">Terms</a></div></div>
   </div>
 </footer>
+
+/* ── SHOWCASE TAB SWITCHER ──────────────────────────── */
+function switchTab(btn, panelId) {
+  document.querySelectorAll('.showcase-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.showcase-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  const panel = document.getElementById(panelId);
+  if (panel) {
+    panel.classList.add('active');
+    // Re-trigger fade-up for newly visible elements
+    panel.querySelectorAll('.fade-up:not(.visible)').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 80);
+    });
+  }
+}
 <script src="main.js"></script>
 </body>
 </html>
